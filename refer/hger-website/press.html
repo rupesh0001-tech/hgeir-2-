@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Press & Media · HGER 2026</title>
+<meta name="description" content="HGER 2026 press releases, media kit, brand assets, and journalist contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* News grid */
+  .news-section { background: var(--paper); }
+  .news-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .news-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 28px 32px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -16px rgba(10,31,28,0.12);
+    border-color: var(--green);
+  }
+  .news-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    margin-bottom: 18px;
+  }
+  .news-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    flex-grow: 1;
+  }
+  .news-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .news-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .news-source .read-arrow {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* Featured press */
+  .featured-press {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-press::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 201, 133, 0.18) 0%, transparent 60%);
+  }
+  .featured-press .section-eyebrow { color: var(--green-bright); }
+  .featured-press .section-eyebrow::before { color: var(--green-bright); }
+  .featured-press-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .featured-press h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .featured-press h2 em { color: var(--green-bright); font-style: italic; font-weight: 300; }
+  .featured-press p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(251,253,252,0.75);
+    margin-bottom: 24px;
+  }
+  .press-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green-bright);
+    margin-bottom: 16px;
+  }
+
+  .featured-visual {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--blue-deep) 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .featured-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 30%, rgba(44, 201, 133, 0.25) 0%, transparent 50%);
+  }
+  .featured-visual-content {
+    text-align: center;
+    color: var(--paper);
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+  }
+  .fv-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--green-bright);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .fv-text {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* Media kit */
+  .kit-section { background: var(--bg-alt); }
+  .kit-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .kit-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: left;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+  }
+  .kit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -16px rgba(10,31,28,0.12);
+    border-color: var(--green);
+  }
+  .kit-icon {
+    width: 40px; height: 40px;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .kit-card:nth-child(2) .kit-icon { color: var(--blue); }
+  .kit-card:nth-child(3) .kit-icon { color: var(--teal); }
+  .kit-card:nth-child(4) .kit-icon { color: var(--green-bright); }
+  .kit-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .kit-card p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .kit-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .kit-card:nth-child(2) .kit-meta { color: var(--blue); }
+  .kit-card:nth-child(3) .kit-meta { color: var(--teal); }
+  .kit-card:nth-child(4) .kit-meta { color: var(--green-bright); }
+
+  /* Media contact */
+  .media-contact {
+    background: var(--paper);
+    padding: 100px 40px;
+  }
+  .media-contact-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .media-contact-grid::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green-bright) 0%, transparent 60%);
+    opacity: 0.15;
+  }
+  .media-contact-grid > * { position: relative; z-index: 1; }
+  .media-contact h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .media-contact h2 em { color: var(--green-bright); font-style: italic; font-weight: 300; }
+  .media-contact > p {
+    color: rgba(251,253,252,0.75);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .media-contact-info {
+    background: rgba(251, 253, 252, 0.06);
+    border: 1px solid rgba(251, 253, 252, 0.15);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+  .mci-row {
+    margin-bottom: 18px;
+  }
+  .mci-row:last-child { margin-bottom: 0; }
+  .mci-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--green-bright);
+    margin-bottom: 4px;
+  }
+  .mci-value {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--paper);
+  }
+  .mci-value a {
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .mci-value a:hover { color: var(--green-bright); }
+
+  @media (max-width: 900px) {
+    .news-grid { grid-template-columns: 1fr; }
+    .featured-press-inner { grid-template-columns: 1fr; gap: 40px; }
+    .kit-grid { grid-template-columns: 1fr 1fr; }
+    .media-contact-grid { grid-template-columns: 1fr; padding: 32px; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark"></div>
+    <span>HGER<sup style="font-size:10px;color:var(--green);margin-left:4px;">2026</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="roadshow.html">The Roadshow</a></li>
+    <li><a href="summit.html">Summit & Awards</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="schemes.html">Govt. Schemes</a></li>
+    <li><a href="press.html" class="active">Press</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="sponsors.html" class="nav-cta">Reserve a Slot</a>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span class="arrow">→</span> <span>Press & Media</span>
+    </div>
+    <h1 class="page-title fade-up">News, releases, &<br/><em class="green">media resources.</em></h1>
+    <p class="page-sub fade-up delay-1">Everything journalists, editors, and partners need to cover HGER 2026 — press releases, brand kit, fact sheets, and direct contact for our media team.</p>
+  </div>
+</header>
+
+<!-- FEATURED PRESS -->
+<section class="featured-press">
+  <div class="featured-press-inner">
+    <div>
+      <div class="press-tag">▲ FEATURED · 12 NOV 2025</div>
+      <h2>Hon'ble Anil Vij to grace HGER 2026 as <em>Chief Guest.</em></h2>
+      <p>Haryana's Minister for Power, Energy & Transport will preside over the closing Summit & Awards Night in Chandigarh — marking the culmination of India's first multi-city green energy roadshow dedicated entirely to a single state.</p>
+      <a href="#" class="btn-primary" style="background: var(--green-bright); color: var(--ink);">
+        Read Full Release
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="featured-visual">
+      <div class="featured-visual-content">
+        <div class="fv-quote">"</div>
+        <div class="fv-text">Haryana's renewable energy journey is the future — and HGER is bringing it to every district.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS / RELEASES -->
+<section class="news-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Latest News & Press Releases</div>
+    <h2 class="section-title">In the <em class="green">news.</em></h2>
+    <p class="section-sub">Follow HGER's journey from concept to launch — every milestone, partnership, and announcement.</p>
+  </div>
+
+  <div class="news-grid">
+    <a href="#" class="news-card">
+      <div class="news-date">18 OCT 2025 · Press Release</div>
+      <h3>HGER 2026 announces sponsorship cap at just 20 brands</h3>
+      <p>In a category-first move, Haryana Green Energy Roadshow caps total sponsor participation across 10 cities at twenty companies — guaranteeing exclusivity and undivided buyer attention.</p>
+      <div class="news-source"><span>HGER NEWSROOM</span><span class="read-arrow">READ →</span></div>
+    </a>
+
+    <a href="#" class="news-card">
+      <div class="news-date">5 NOV 2025 · Partnership</div>
+      <h3>HAREDA partnership formalised — live enrolment desks confirmed</h3>
+      <p>Haryana Renewable Energy Development Agency joins HGER as official outreach partner. Every city stop will host PM Surya Ghar & PM-KUSUM enrolment desks alongside sponsor stalls.</p>
+      <div class="news-source"><span>HGER NEWSROOM</span><span class="read-arrow">READ →</span></div>
+    </a>
+
+    <a href="#" class="news-card">
+      <div class="news-date">22 NOV 2025 · Media Coverage</div>
+      <h3>The Tribune covers HGER's tier 2/3 city strategy</h3>
+      <p>"The first green energy event built ground-up for India's small cities" — featured editorial coverage on the unique audience design and city selection methodology behind HGER 2026.</p>
+      <div class="news-source"><span>THE TRIBUNE</span><span class="read-arrow">READ →</span></div>
+    </a>
+
+    <a href="#" class="news-card">
+      <div class="news-date">3 DEC 2025 · Announcement</div>
+      <h3>10 cities confirmed — route map released</h3>
+      <p>HGER reveals the full 10-city circuit: Palwal → Chandigarh, traversing both DHBVN and UHBVN territories with 5 stops in each DISCOM region for balanced statewide coverage.</p>
+      <div class="news-source"><span>HGER NEWSROOM</span><span class="read-arrow">READ →</span></div>
+    </a>
+
+    <a href="#" class="news-card">
+      <div class="news-date">14 JAN 2026 · Industry</div>
+      <h3>Dainik Jagran: "HGER positioned to be the most-watched green event of 2026"</h3>
+      <p>Hindi-language coverage highlights HGER's potential to reach Haryana's rural-aspirational households, where rooftop solar adoption has lagged behind metro centres.</p>
+      <div class="news-source"><span>DAINIK JAGRAN</span><span class="read-arrow">READ →</span></div>
+    </a>
+
+    <a href="#" class="news-card">
+      <div class="news-date">2 FEB 2026 · Awards</div>
+      <h3>HGER Awards Night — 6 categories announced for industry & visitors</h3>
+      <p>Three exhibitor awards and three visitor awards will be presented at the closing summit. Self-nominations open February 15 for the Sustainable Farmer, Greenest Institution, and Renewable Champion categories.</p>
+      <div class="news-source"><span>HGER NEWSROOM</span><span class="read-arrow">READ →</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- MEDIA KIT -->
+<section class="kit-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Media Kit · Download Centre</div>
+    <h2 class="section-title">Everything you need for <em class="green">your story.</em></h2>
+    <p class="section-sub">Logos, brand guidelines, fact sheets, leadership bios, and high-resolution photography — all in one place.</p>
+  </div>
+
+  <div class="kit-grid">
+    <a href="#" class="kit-card">
+      <svg class="kit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="4"/>
+      </svg>
+      <h4>Logo & Brand Kit</h4>
+      <p>Official logos in light/dark variants, brand colours, typography guidelines, and usage rules.</p>
+      <div class="kit-meta"><span>ZIP · 8.4 MB</span><span>Download →</span></div>
+    </a>
+
+    <a href="#" class="kit-card">
+      <svg class="kit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+        <path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/>
+      </svg>
+      <h4>Fact Sheet 2026</h4>
+      <p>Key statistics, sponsor structure, route, audience breakdown, and ROI projections.</p>
+      <div class="kit-meta"><span>PDF · 1.2 MB</span><span>Download →</span></div>
+    </a>
+
+    <a href="#" class="kit-card">
+      <svg class="kit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 22c0-4 4-7 8-7s8 3 8 7"/>
+      </svg>
+      <h4>Leadership Bios</h4>
+      <p>Detailed bios, professional photos, and quotes from HGER founders and senior leadership.</p>
+      <div class="kit-meta"><span>PDF · 2.8 MB</span><span>Download →</span></div>
+    </a>
+
+    <a href="#" class="kit-card">
+      <svg class="kit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+      <h4>Press Photography</h4>
+      <p>High-resolution photography of stalls, route, key team members, and venue mockups.</p>
+      <div class="kit-meta"><span>ZIP · 124 MB</span><span>Download →</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- MEDIA CONTACT -->
+<section class="media-contact">
+  <div class="media-contact-grid">
+    <div>
+      <div class="press-tag" style="color: var(--green-bright); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; display: inline-block;">FOR JOURNALISTS</div>
+      <h2>Looking for a <em>quote, story, or interview?</em></h2>
+      <p>Our media team responds within 24 hours. We can arrange interviews with the founders, sponsor partners, or government collaborators on request.</p>
+    </div>
+    <div class="media-contact-info">
+      <div class="mci-row">
+        <div class="mci-label">Email</div>
+        <div class="mci-value"><a href="mailto:media@hger.in">media@hger.in</a></div>
+      </div>
+      <div class="mci-row">
+        <div class="mci-label">Direct Line</div>
+        <div class="mci-value"><a href="tel:+910000000000">+91 XXX XXX XXXX</a></div>
+      </div>
+      <div class="mci-row">
+        <div class="mci-label">Head of Communications</div>
+        <div class="mci-value">Available on request</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"></div>
+        <span style="color:var(--paper);">HGER<sup style="font-size:10px;color:var(--green-bright);margin-left:4px;">2026</sup></span>
+      </a>
+      <p>Haryana Green Energy Roadshow — a 10-city, 3-month journey to bring renewable energy solutions across solar, wind, EV, biofuels, and clean-tech to institutions and businesses across Haryana.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>The Roadshow</h4>
+      <a href="roadshow.html">Route & Cities</a>
+      <a href="roadshow.html#schedule">Schedule</a>
+      <a href="schemes.html">Govt. Schemes</a>
+      <a href="summit.html">Summit & Awards</a>
+    </div>
+    <div class="footer-col">
+      <h4>For Sponsors</h4>
+      <a href="sponsors.html">Sponsorship Tiers</a>
+      <a href="sponsors.html#audience">Audience</a>
+      <a href="sponsors.html#apply">Apply Now</a>
+      <a href="press.html">Press Kit</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About HGER</a>
+      <a href="about.html#team">Team</a>
+      <a href="press.html">Press & Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:partnerships@hger.in">partnerships@hger.in</a>
+      <a href="mailto:media@hger.in">media@hger.in</a>
+      <a href="tel:+910000000000">+91 XXX XXX XXXX</a>
+      <a href="contact.html">Chandigarh, India</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© HGER 2026 · ALL RIGHTS RESERVED</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

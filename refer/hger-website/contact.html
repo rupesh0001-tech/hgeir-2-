@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · HGER 2026</title>
+<meta name="description" content="Get in touch with HGER 2026 — for sponsorship, media, partnerships, or general enquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .contact-section { background: var(--paper); }
+  .contact-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info-card {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green-bright) 0%, transparent 60%);
+    opacity: 0.2;
+  }
+  .contact-info-card > * { position: relative; z-index: 1; }
+  .contact-info-card h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .contact-info-card > p {
+    color: rgba(251,253,252,0.75);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .ci-list {
+    list-style: none;
+    padding: 0;
+  }
+  .ci-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0;
+    border-top: 1px solid rgba(251,253,252,0.12);
+  }
+  .ci-item:first-child { border-top: none; padding-top: 0; }
+  .ci-item:last-child { padding-bottom: 0; }
+  .ci-icon {
+    width: 44px; height: 44px;
+    background: rgba(44, 201, 133, 0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-bright);
+    flex-shrink: 0;
+  }
+  .ci-icon svg { width: 20px; height: 20px; }
+  .ci-content .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(251,253,252,0.5);
+    margin-bottom: 4px;
+  }
+  .ci-content .value {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--paper);
+  }
+  .ci-content .value a {
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .ci-content .value a:hover { color: var(--green-bright); }
+
+  /* Form card */
+  .contact-form {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+  }
+  .contact-form h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .contact-form > p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  /* Quick contact tiles */
+  .quick-section { background: var(--bg-alt); }
+  .quick-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .quick-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    border-top: 3px solid var(--green);
+  }
+  .quick-card:nth-child(2) { border-top-color: var(--blue); }
+  .quick-card:nth-child(3) { border-top-color: var(--teal); }
+  .quick-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -16px rgba(10,31,28,0.12);
+  }
+  .quick-icon {
+    width: 40px; height: 40px;
+    color: var(--green);
+    margin-bottom: 18px;
+  }
+  .quick-card:nth-child(2) .quick-icon { color: var(--blue); }
+  .quick-card:nth-child(3) .quick-icon { color: var(--teal); }
+  .quick-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .quick-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .quick-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .quick-card:nth-child(2) .quick-cta { color: var(--blue); }
+  .quick-card:nth-child(3) .quick-cta { color: var(--teal); }
+
+  /* FAQ */
+  .faq-section { background: var(--paper); }
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 22px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    background: var(--paper);
+    transition: background 0.3s ease;
+  }
+  .faq-q:hover { background: var(--bg); }
+  .faq-q-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    padding-right: 16px;
+  }
+  .faq-toggle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--green);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 28px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+  .faq-item.open .faq-a {
+    max-height: 200px;
+    padding: 0 28px 22px;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-info-card,
+    .contact-form { padding: 28px 24px; }
+    .quick-grid { grid-template-columns: 1fr; }
+    .faq-q-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark"></div>
+    <span>HGER<sup style="font-size:10px;color:var(--green);margin-left:4px;">2026</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="roadshow.html">The Roadshow</a></li>
+    <li><a href="summit.html">Summit & Awards</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="schemes.html">Govt. Schemes</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="sponsors.html" class="nav-cta">Reserve a Slot</a>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span class="arrow">→</span> <span>Contact</span>
+    </div>
+    <h1 class="page-title fade-up">Let's <em class="green">talk.</em></h1>
+    <p class="page-sub fade-up delay-1">Sponsorship, media, government partnerships, dealer interest, or just a question — we're here. Pick the right way to reach us and you'll get a thoughtful, fast response.</p>
+  </div>
+</header>
+
+<!-- QUICK CONTACT -->
+<section class="quick-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Quick Routes</div>
+    <h2 class="section-title">What do you need <em class="green">help with?</em></h2>
+  </div>
+
+  <div class="quick-grid">
+    <a href="mailto:partnerships@hger.in" class="quick-card">
+      <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M22 11h-6M22 17h-6"/>
+      </svg>
+      <h4>Sponsorship</h4>
+      <p>Brand & partnership enquiries — tier discussions, slot bookings, category exclusivity, and custom packages.</p>
+      <span class="quick-cta">partnerships@hger.in →</span>
+    </a>
+
+    <a href="mailto:media@hger.in" class="quick-card">
+      <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+        <path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/>
+      </svg>
+      <h4>Media & Press</h4>
+      <p>Journalists, editors, content partners — interviews, quotes, fact-checking, and HGER media kit access.</p>
+      <span class="quick-cta">media@hger.in →</span>
+    </a>
+
+    <a href="mailto:hello@hger.in" class="quick-card">
+      <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+      </svg>
+      <h4>General Enquiries</h4>
+      <p>Visiting a stop, dealer interest, careers, volunteering, or anything else — we'll route your message to the right team.</p>
+      <span class="quick-cta">hello@hger.in →</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section class="contact-section">
+  <div class="contact-grid">
+    <!-- Info Card -->
+    <div class="contact-info-card">
+      <h2>Headquartered in Chandigarh.</h2>
+      <p>HGER operates from Chandigarh — central to our Haryana focus and proximate to government partners, DISCOMs, and the closing summit venue.</p>
+
+      <ul class="ci-list">
+        <li class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="ci-content">
+            <div class="label">Office</div>
+            <div class="value">Sector 17, Chandigarh, India</div>
+          </div>
+        </li>
+        <li class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="ci-content">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+910000000000">+91 XXX XXX XXXX</a></div>
+          </div>
+        </li>
+        <li class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div class="ci-content">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:hello@hger.in">hello@hger.in</a></div>
+          </div>
+        </li>
+        <li class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="ci-content">
+            <div class="label">Hours</div>
+            <div class="value">Mon–Fri · 10:00 – 19:00 IST</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form">
+      <h3>Send us a message.</h3>
+      <p>Fill out the form and a relevant team member will be in touch within 24–48 working hours.</p>
+
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will reach out shortly. (This is a demo form.)');">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" required placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organisation</label>
+            <input type="text" class="form-input" placeholder="Company / Brand / Outlet">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" required placeholder="you@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" placeholder="+91 ...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subject / Reason</label>
+          <select class="form-select" required>
+            <option value="">Pick a topic</option>
+            <option>Sponsorship enquiry</option>
+            <option>Media & press</option>
+            <option>Government / Partnership</option>
+            <option>Dealer interest</option>
+            <option>Visitor / attendee question</option>
+            <option>Speaker proposal</option>
+            <option>Award nomination</option>
+            <option>Career / Internship</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Message</label>
+          <textarea class="form-textarea" required placeholder="Tell us a bit about what you're looking for..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Send Message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Frequently Asked Questions</div>
+    <h2 class="section-title">Quick <em class="green">answers</em> to common questions.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">When does HGER 2026 take place?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">HGER 2026 runs from March 4 to May 15, 2026. The roadshow begins in Palwal, traverses 9 more Haryana cities, and ends with the Summit & Awards Night in Chandigarh on May 15.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">How many sponsorship slots are available?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Exactly 20 — split across three tiers: 1 Pradhaan (Title), 7 Saarthi (Co-Title), and 12 Hamsafar (Associate). Once filled, applications close.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">Can I sponsor for just one city?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">No — HGER is a unified 10-city journey. All sponsors commit across the entire route. This guarantees buyers see your brand consistently and helps your dealer network develop statewide momentum.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">Is the event open to the public?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Yes! All 9 city stops have free public entry, with live demos, government enrolment desks, and Haryanvi-language outreach. The Chandigarh Summit & Awards Night is invitation-only.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">Who can apply for HGER Awards?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">There are two award tracks: Exhibitor Awards (for sponsor brands) and Visitor Awards (open to farmers, institutions, panchayats, SMEs, and households across Haryana). Self-nominations open February 15, 2026.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">Which government bodies are partnered with HGER?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">HAREDA (Haryana Renewable Energy Development Agency) is the official outreach partner. DHBVN and UHBVN co-host the live enrolment desks. CED (Chandigarh) is the Summit partner.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span class="faq-q-text">Will HGER expand beyond Haryana?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Yes — HGER 2027 will expand to Punjab, UP, and Rajasthan. The expansion will be officially announced at the closing summit in Chandigarh. Title sponsor receives first right of refusal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"></div>
+        <span style="color:var(--paper);">HGER<sup style="font-size:10px;color:var(--green-bright);margin-left:4px;">2026</sup></span>
+      </a>
+      <p>Haryana Green Energy Roadshow — a 10-city, 3-month journey to bring renewable energy solutions across solar, wind, EV, biofuels, and clean-tech to institutions and businesses across Haryana.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>The Roadshow</h4>
+      <a href="roadshow.html">Route & Cities</a>
+      <a href="roadshow.html#schedule">Schedule</a>
+      <a href="schemes.html">Govt. Schemes</a>
+      <a href="summit.html">Summit & Awards</a>
+    </div>
+    <div class="footer-col">
+      <h4>For Sponsors</h4>
+      <a href="sponsors.html">Sponsorship Tiers</a>
+      <a href="sponsors.html#audience">Audience</a>
+      <a href="sponsors.html#apply">Apply Now</a>
+      <a href="press.html">Press Kit</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About HGER</a>
+      <a href="about.html#team">Team</a>
+      <a href="press.html">Press & Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:partnerships@hger.in">partnerships@hger.in</a>
+      <a href="mailto:media@hger.in">media@hger.in</a>
+      <a href="tel:+910000000000">+91 XXX XXX XXXX</a>
+      <a href="contact.html">Chandigarh, India</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© HGER 2026 · ALL RIGHTS RESERVED</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

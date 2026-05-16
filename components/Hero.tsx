@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section className="text-center max-w-6xl mx-auto relative px-6 py-4 md:py-12">
+    <section className="text-center max-w-6xl mx-auto relative px-6 py-4 md:py-2">
       <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-semibold tracking-tight leading-[1.2] sm:leading-[1.1] mb-6 flex flex-col items-center justify-center uppercase text-[#0a1f1c]">
         <div className="flex items-center justify-center gap-4">
           <span className="opacity-90">TEN CITIES UNITED</span>

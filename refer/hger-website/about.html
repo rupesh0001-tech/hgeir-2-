@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · HGER 2026 — Haryana Green Energy Roadshow</title>
+<meta name="description" content="HGER 2026 — the vision, mission, team, and story behind Haryana's first 10-city green energy roadshow.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ========== ABOUT-SPECIFIC ========== */
+  .about-intro {
+    background: var(--paper);
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .intro-visual {
+    aspect-ratio: 1;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--teal-deep) 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .intro-visual::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: -30%;
+    width: 160%; height: 160%;
+    background: radial-gradient(circle at center, rgba(244, 196, 48, 0.25) 0%, transparent 50%);
+  }
+  .intro-visual-content {
+    position: relative;
+    z-index: 1;
+    color: var(--paper);
+    text-align: center;
+    padding: 40px;
+  }
+  .intro-big-num {
+    font-family: 'Fraunces', serif;
+    font-size: 120px;
+    line-height: 1;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--green-bright);
+  }
+  .intro-big-label {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    margin-top: 10px;
+    letter-spacing: -0.02em;
+  }
+  .intro-big-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(251,253,252,0.7);
+    margin-top: 14px;
+  }
+
+  /* Mission/Vision blocks */
+  .mv-section { background: var(--bg-alt); }
+  .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .mv-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+    border-top: 4px solid var(--green);
+  }
+  .mv-card:nth-child(2) { border-top-color: var(--blue); }
+  .mv-icon {
+    width: 48px; height: 48px;
+    color: var(--green);
+    margin-bottom: 20px;
+  }
+  .mv-card:nth-child(2) .mv-icon { color: var(--blue); }
+  .mv-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .mv-card:nth-child(2) .mv-label { color: var(--blue); }
+  .mv-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .mv-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* Story timeline */
+  .story-section { background: var(--paper); }
+  .story-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .story-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: start;
+  }
+  .story-item:last-child { border-bottom: none; }
+  .story-year {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--green);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .story-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .story-content p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  /* Values grid */
+  .values-section { background: var(--bg-alt); }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .value-cell {
+    padding: 36px 28px;
+    border-right: 1px solid var(--line-soft);
+    transition: background 0.3s ease;
+  }
+  .value-cell:last-child { border-right: none; }
+  .value-cell:hover { background: var(--bg); }
+  .value-num {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .value-cell:nth-child(2) .value-num { color: var(--blue); }
+  .value-cell:nth-child(3) .value-num { color: var(--teal); }
+  .value-cell:nth-child(4) .value-num { color: var(--green-bright); }
+  .value-cell h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .value-cell p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* Team */
+  .team-section { background: var(--paper); }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .team-card {
+    text-align: center;
+  }
+  .team-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue-bright) 100%);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+  }
+  .team-card:nth-child(2) .team-avatar {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--green-deep) 100%);
+  }
+  .team-card:nth-child(3) .team-avatar {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  }
+  .team-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%);
+  }
+  .team-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .team-card .role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .team-card p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* Stats banner */
+  .stats-banner {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--teal-deep) 50%, var(--blue-deep) 100%);
+    color: var(--paper);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-banner::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 201, 133, 0.18) 0%, transparent 60%);
+  }
+  .stats-banner-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    z-index: 1;
+  }
+  .sb-stat {
+    text-align: center;
+    padding: 0 20px;
+    border-right: 1px solid rgba(251,253,252,0.18);
+  }
+  .sb-stat:last-child { border-right: none; }
+  .sb-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--green-bright);
+    font-style: italic;
+  }
+  .sb-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(251,253,252,0.7);
+    margin-top: 14px;
+  }
+
+  /* CTA */
+  .cta-strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-strip h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-strip h2 em { color: var(--green-bright); font-style: italic; font-weight: 300; }
+  .cta-strip p {
+    font-size: 16px;
+    color: rgba(251,253,252,0.7);
+    max-width: 540px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .cta-strip .btn-primary {
+    background: var(--green-bright);
+    color: var(--ink);
+  }
+  .cta-strip .btn-primary:hover {
+    background: #4dd99a;
+  }
+
+  @media (max-width: 900px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .mv-grid { grid-template-columns: 1fr; }
+    .mv-card { padding: 28px; }
+    .story-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .value-cell { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .value-cell:nth-child(2n) { border-right: none; }
+    .value-cell:nth-child(n+3) { border-bottom: none; }
+    .team-grid { grid-template-columns: 1fr; }
+    .stats-banner-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .sb-stat { border-right: none; }
+    .intro-big-num { font-size: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark"></div>
+    <span>HGER<sup style="font-size:10px;color:var(--green);margin-left:4px;">2026</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="roadshow.html">The Roadshow</a></li>
+    <li><a href="summit.html">Summit & Awards</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="schemes.html">Govt. Schemes</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="sponsors.html" class="nav-cta">Reserve a Slot</a>
+</nav>
+
+<!-- ========== PAGE HEADER ========== -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span class="arrow">→</span> <span>About HGER</span>
+    </div>
+    <h1 class="page-title fade-up">A new movement for <em class="green">Haryana's</em><br/>green energy <em class="blue">future.</em></h1>
+    <p class="page-sub fade-up delay-1">HGER is more than a roadshow — it's the largest grassroots green energy outreach ever undertaken in Haryana. Here's the vision, the team, and the story behind it.</p>
+  </div>
+</header>
+
+<!-- ========== INTRO ========== -->
+<section class="about-intro">
+  <div class="intro-grid">
+    <div>
+      <div class="section-eyebrow">Why HGER exists</div>
+      <h2 class="section-title">A market <em class="green">hidden</em> in plain sight.</h2>
+      <p class="section-sub" style="margin-top: 28px;">India's tier 2 and tier 3 cities — especially in states like Haryana — represent the largest untapped opportunity for renewable energy adoption. They have the rooftops, the budgets, the government subsidies, and the daylight hours. What they don't have is direct access to the manufacturers, dealers, and solutions that could power their transition.</p>
+      <p class="section-sub" style="margin-top: 20px;">HGER closes that gap. We bring the renewable energy industry — solar, wind, EV, biofuels, storage — directly to the doorstep of every district in Haryana. No travel for the buyer. No middlemen. Just face-to-face conversations between leading companies and the institutions, farmers, and households ready to adopt.</p>
+    </div>
+    <div class="intro-visual">
+      <div class="intro-visual-content">
+        <div class="intro-big-num">28M</div>
+        <div class="intro-big-label">Haryanvis</div>
+        <div class="intro-big-desc">Ready for the energy transition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MISSION VISION ========== -->
+<section class="mv-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Mission & Vision</div>
+    <h2 class="section-title">What drives <em class="green">us</em> forward.</h2>
+  </div>
+
+  <div class="mv-grid">
+    <div class="mv-card">
+      <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+      </svg>
+      <div class="mv-label">Our Mission</div>
+      <h3>Bridge the gap between green energy supply and rural demand.</h3>
+      <p>Bring 20 of India's leading renewable energy brands face-to-face with 50,000+ pre-qualified buyers across 10 underserved Haryana cities — generating real adoption, real subsidies, and real impact in a single 3-month sprint.</p>
+    </div>
+
+    <div class="mv-card">
+      <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M2 12h20M12 2v20M5 5l14 14M19 5L5 19"/>
+        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+      </svg>
+      <div class="mv-label">Our Vision</div>
+      <h3>A Haryana where every district leads India's energy transition.</h3>
+      <p>To establish HGER as North India's most respected, government-aligned green energy roadshow — expanding across Punjab, UP, Rajasthan, and beyond, with Haryana as the proven model for grassroots clean energy adoption.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS BANNER ========== -->
+<section class="stats-banner">
+  <div class="stats-banner-grid">
+    <div class="sb-stat">
+      <div class="sb-num">10</div>
+      <div class="sb-label">Cities Covered</div>
+    </div>
+    <div class="sb-stat">
+      <div class="sb-num">50K+</div>
+      <div class="sb-label">Expected Visitors</div>
+    </div>
+    <div class="sb-stat">
+      <div class="sb-num">20</div>
+      <div class="sb-label">Sponsor Brands</div>
+    </div>
+    <div class="sb-stat">
+      <div class="sb-num">₹100Cr</div>
+      <div class="sb-label">Deal Pipeline</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STORY TIMELINE ========== -->
+<section class="story-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Our Journey</div>
+    <h2 class="section-title">How <em class="green">HGER</em> came to be.</h2>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-item">
+      <div class="story-year">2024</div>
+      <div class="story-content">
+        <h4>The insight</h4>
+        <p>While metro cities were oversaturated with green energy expos, the real adoption opportunity sat in tier 2 and tier 3 Haryana — districts where 70% of Haryana's institutional, agricultural, and SME buyers live, but where no major roadshow had ever been organised.</p>
+      </div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">2025</div>
+      <div class="story-content">
+        <h4>The blueprint</h4>
+        <p>HGER was conceptualised as a curated, 10-city traveling roadshow — starting in Palwal and culminating in Chandigarh — with strict sponsor exclusivity (only 20 companies), government partnership with HAREDA, DHBVN & UHBVN, and a closing Summit & Awards Night.</p>
+      </div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">Late 2025</div>
+      <div class="story-content">
+        <h4>Building partnerships</h4>
+        <p>Conversations begin with Haryana's Renewable Energy Department, district administrations, and India's leading green energy brands. Initial sponsor interest confirms the model.</p>
+      </div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">March 2026</div>
+      <div class="story-content">
+        <h4>The launch</h4>
+        <p>HGER 2026 begins in Palwal. Over the next 3 months, the roadshow traverses Haryana — bringing solar, wind, EV, biofuels, and clean-tech to every corner of the state. The journey ends with a flagship summit in Chandigarh featuring Hon'ble Minister Sh. Anil Vij.</p>
+      </div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">2027 →</div>
+      <div class="story-content">
+        <h4>Beyond Haryana</h4>
+        <p>HGER expands to Punjab, Uttar Pradesh, and Rajasthan — building a multi-state green energy outreach platform that becomes the de-facto rural and semi-urban adoption channel for clean tech in North India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VALUES ========== -->
+<section class="values-section">
+  <div class="section-head">
+    <div class="section-eyebrow">What We Stand For</div>
+    <h2 class="section-title">Four <em class="green">principles.</em> Every city. Every decision.</h2>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-cell">
+      <div class="value-num">01</div>
+      <h4>Curated, not crowded</h4>
+      <p>Twenty sponsors. No more. Every brand gets real visibility, real leads, real ROI — never lost in noise.</p>
+    </div>
+    <div class="value-cell">
+      <div class="value-num">02</div>
+      <h4>Government-aligned</h4>
+      <p>Real subsidies. Real enrolment desks. Real ministerial endorsement. Not a private event with government window-dressing.</p>
+    </div>
+    <div class="value-cell">
+      <div class="value-num">03</div>
+      <h4>Buyer-first</h4>
+      <p>Every visitor walks in with intent — institution, farmer, household, or dealer. Footfall isn't a number, it's a pipeline.</p>
+    </div>
+    <div class="value-cell">
+      <div class="value-num">04</div>
+      <h4>Outcomes over optics</h4>
+      <p>We measure ourselves by deals closed, subsidies enrolled, dealers onboarded — not booth photos or press impressions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TEAM ========== -->
+<section class="team-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Leadership Team</div>
+    <h2 class="section-title">The people <em class="green">behind</em> HGER.</h2>
+    <p class="section-sub">A multi-disciplinary team with deep roots in Haryana, experience across renewable energy, government partnerships, and large-scale event production.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">F</div>
+      <h4>Founder & CEO</h4>
+      <div class="role">Strategy · Government Relations</div>
+      <p>Native of Palwal, Haryana. Brings deep regional insight into building partnerships with district administrations, panchayats, and state agencies.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">P</div>
+      <h4>Programme Director</h4>
+      <div class="role">Operations · Roadshow Execution</div>
+      <p>Heads city-by-city execution — venue logistics, sponsor activations, ground teams, and government coordination across all 10 districts.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">S</div>
+      <h4>Sponsorships Head</h4>
+      <div class="role">Partnerships · Sponsor Success</div>
+      <p>Manages the 20-sponsor cohort end-to-end — from onboarding and tier customisation to lead delivery and post-event ROI reporting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-strip">
+  <h2>Want to be part of <em>HGER 2026?</em></h2>
+  <p>We're talking to brands, partners, and government bodies who want to help shape Haryana's green energy story.</p>
+  <a href="contact.html" class="btn-primary">
+    Get in Touch
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"></div>
+        <span style="color:var(--paper);">HGER<sup style="font-size:10px;color:var(--green-bright);margin-left:4px;">2026</sup></span>
+      </a>
+      <p>Haryana Green Energy Roadshow — a 10-city, 3-month journey to bring renewable energy solutions across solar, wind, EV, biofuels, and clean-tech to institutions and businesses across Haryana.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>The Roadshow</h4>
+      <a href="roadshow.html">Route & Cities</a>
+      <a href="roadshow.html#schedule">Schedule</a>
+      <a href="schemes.html">Govt. Schemes</a>
+      <a href="summit.html">Summit & Awards</a>
+    </div>
+    <div class="footer-col">
+      <h4>For Sponsors</h4>
+      <a href="sponsors.html">Sponsorship Tiers</a>
+      <a href="sponsors.html#audience">Audience</a>
+      <a href="sponsors.html#apply">Apply Now</a>
+      <a href="press.html">Press Kit</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About HGER</a>
+      <a href="about.html#team">Team</a>
+      <a href="press.html">Press & Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:partnerships@hger.in">partnerships@hger.in</a>
+      <a href="mailto:media@hger.in">media@hger.in</a>
+      <a href="tel:+910000000000">+91 XXX XXX XXXX</a>
+      <a href="contact.html">Chandigarh, India</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© HGER 2026 · ALL RIGHTS RESERVED</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

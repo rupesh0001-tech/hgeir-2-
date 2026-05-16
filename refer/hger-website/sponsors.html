@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sponsors · HGER 2026</title>
+<meta name="description" content="HGER 2026 — 20 sponsor slots, 3 tiers. Reserve your spot in Haryana's biggest green energy roadshow.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Slots viz */
+  .slots-section {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .slots-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green) 0%, transparent 65%);
+    opacity: 0.4;
+  }
+  .slots-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blue) 0%, transparent 65%);
+    opacity: 0.35;
+  }
+  .slots-section .section-eyebrow { color: var(--green-bright); }
+  .slots-section .section-eyebrow::before { color: var(--green-bright); }
+  .slots-section .section-title em.green { color: var(--green-bright); }
+  .slots-section .section-sub { color: rgba(251,253,252,0.75); }
+
+  .slots-grid-big {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .bigslot {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 1px solid rgba(251,253,252,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(251,253,252,0.4);
+    transition: all 0.3s ease;
+  }
+  .bigslot.taken {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--paper);
+  }
+  .bigslot.open {
+    background: rgba(44,201,133,0.1);
+    border-color: rgba(44,201,133,0.4);
+    color: var(--green-bright);
+  }
+  .bigslot.open:hover {
+    background: var(--green-bright);
+    color: var(--ink);
+    transform: scale(1.1);
+  }
+
+  .slots-legend {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    margin-top: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(251,253,252,0.6);
+    position: relative;
+    z-index: 1;
+  }
+  .ld-box {
+    display: inline-block;
+    width: 12px; height: 12px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .ld-box.taken { background: var(--blue); }
+  .ld-box.open { background: var(--green-bright); }
+
+  /* Tiers */
+  .tiers-section { background: var(--bg-alt); }
+  .tiers-grid-big {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .tier-big {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 40px 36px;
+    position: relative;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-big:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px rgba(10,31,28,0.15);
+  }
+  .tier-big.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .tier-big.featured .tier-name { color: var(--green-bright); }
+  .tier-big.featured .tier-meta { color: rgba(251,253,252,0.5); }
+  .tier-big.featured .tier-slots-info { color: rgba(251,253,252,0.7); border-color: rgba(251,253,252,0.15); }
+  .tier-big.featured ul li { color: rgba(251,253,252,0.85); }
+  .tier-big.featured ul li::before { color: var(--green-bright); }
+  .tier-big.featured .tier-cta { background: var(--green-bright); color: var(--ink); }
+  .tier-big.featured .tier-price { color: rgba(251,253,252,0.7); border-color: rgba(251,253,252,0.15); }
+  .tier-big.featured .tier-price strong { color: var(--green-bright); }
+
+  .tier-tag {
+    position: absolute;
+    top: -12px; right: 24px;
+    background: var(--green);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  .tier-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .tier-name {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .tier-slots-info {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .tier-big ul {
+    list-style: none;
+    flex-grow: 1;
+  }
+  .tier-big ul li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .tier-big ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+  .tier-price {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .tier-price strong {
+    color: var(--green);
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+    margin-right: 6px;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+  .tier-cta {
+    display: inline-block;
+    padding: 14px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .tier-cta:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+  }
+
+  /* Audience grid (full) */
+  .audience-full-section { background: var(--paper); }
+  .audience-full-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .aud-card {
+    padding: 32px 26px;
+    border-right: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  .aud-card:nth-child(4n) { border-right: none; }
+  .aud-card:nth-child(n+5) { border-bottom: none; }
+  .aud-card:hover { background: var(--bg); }
+  .aud-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+  }
+  .aud-card:nth-child(1)::before, .aud-card:nth-child(5)::before { background: var(--green); }
+  .aud-card:nth-child(2)::before, .aud-card:nth-child(6)::before { background: var(--blue); }
+  .aud-card:nth-child(3)::before, .aud-card:nth-child(7)::before { background: var(--teal); }
+  .aud-card:nth-child(4)::before, .aud-card:nth-child(8)::before { background: var(--green-bright); }
+
+  .aud-icon { width: 36px; height: 36px; margin-bottom: 16px; }
+  .aud-card:nth-child(1) .aud-icon, .aud-card:nth-child(5) .aud-icon { color: var(--green); }
+  .aud-card:nth-child(2) .aud-icon, .aud-card:nth-child(6) .aud-icon { color: var(--blue); }
+  .aud-card:nth-child(3) .aud-icon, .aud-card:nth-child(7) .aud-icon { color: var(--teal); }
+  .aud-card:nth-child(4) .aud-icon, .aud-card:nth-child(8) .aud-icon { color: var(--green-bright); }
+  .aud-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .aud-card .pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .aud-card:nth-child(1) .pct, .aud-card:nth-child(5) .pct { color: var(--green); }
+  .aud-card:nth-child(2) .pct, .aud-card:nth-child(6) .pct { color: var(--blue); }
+  .aud-card:nth-child(3) .pct, .aud-card:nth-child(7) .pct { color: var(--teal); }
+  .aud-card:nth-child(4) .pct, .aud-card:nth-child(8) .pct { color: var(--green-bright); }
+  .aud-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* Why HGER */
+  .why-section { background: var(--bg-alt); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .why-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+  .why-num {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .why-card:nth-child(2) .why-num { color: var(--blue); }
+  .why-card:nth-child(3) .why-num { color: var(--teal); }
+  .why-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .why-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* Application form */
+  .apply-section { background: var(--paper); }
+  .apply-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+  }
+  .apply-wrap h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .apply-wrap > p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .slots-grid-big { grid-template-columns: repeat(5, 1fr); }
+    .tiers-grid-big { grid-template-columns: 1fr; }
+    .audience-full-grid { grid-template-columns: 1fr 1fr; }
+    .aud-card { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .aud-card:nth-child(2n) { border-right: none; }
+    .aud-card:nth-child(n+7) { border-bottom: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    .apply-wrap { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark"></div>
+    <span>HGER<sup style="font-size:10px;color:var(--green);margin-left:4px;">2026</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="roadshow.html">The Roadshow</a></li>
+    <li><a href="summit.html">Summit & Awards</a></li>
+    <li><a href="sponsors.html" class="active">Sponsors</a></li>
+    <li><a href="schemes.html">Govt. Schemes</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Reserve a Slot</a>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span class="arrow">→</span> <span>Sponsorship</span>
+    </div>
+    <h1 class="page-title fade-up">Twenty seats. <em class="green">Three tiers.</em><br/>One unforgettable journey.</h1>
+    <p class="page-sub fade-up delay-1">HGER caps participation at 20 brands across all 10 cities — guaranteeing every sponsor real visibility, real leads, and real ROI. Once filled, applications close. Period.</p>
+  </div>
+</header>
+
+<!-- SLOTS LIVE -->
+<section class="slots-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Live Status · As of today</div>
+    <h2 class="section-title">Only <em class="green">14 slots</em> remain.</h2>
+    <p class="section-sub">Slots fill on a first-confirmed basis. Each sponsor commits across all 10 cities — no city-by-city participation.</p>
+  </div>
+
+  <div class="slots-grid-big">
+    <div class="bigslot taken">01</div>
+    <div class="bigslot taken">02</div>
+    <div class="bigslot taken">03</div>
+    <div class="bigslot taken">04</div>
+    <div class="bigslot taken">05</div>
+    <div class="bigslot taken">06</div>
+    <div class="bigslot open">07</div>
+    <div class="bigslot open">08</div>
+    <div class="bigslot open">09</div>
+    <div class="bigslot open">10</div>
+    <div class="bigslot open">11</div>
+    <div class="bigslot open">12</div>
+    <div class="bigslot open">13</div>
+    <div class="bigslot open">14</div>
+    <div class="bigslot open">15</div>
+    <div class="bigslot open">16</div>
+    <div class="bigslot open">17</div>
+    <div class="bigslot open">18</div>
+    <div class="bigslot open">19</div>
+    <div class="bigslot open">20</div>
+  </div>
+
+  <div class="slots-legend">
+    <span><span class="ld-box taken"></span>In Conversation</span>
+    <span><span class="ld-box open"></span>Open</span>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Sponsorship Tiers</div>
+    <h2 class="section-title">Three packages. <em class="green">One promise.</em></h2>
+    <p class="section-sub">Your brand, in front of the right buyer, in every city we visit. Pick the tier that matches your ambition.</p>
+  </div>
+
+  <div class="tiers-grid-big">
+
+    <div class="tier-big">
+      <div class="tier-meta">Tier III · Associate</div>
+      <h3 class="tier-name">Hamsafar</h3>
+      <div class="tier-slots-info">12 slots · co-traveller status</div>
+      <ul>
+        <li>Branded stall in all 10 cities</li>
+        <li>Logo on all collateral & banners</li>
+        <li>Lead capture at every stop</li>
+        <li>Closing summit invitation (2 seats)</li>
+        <li>Institutional buyer introductions</li>
+        <li>Eligible for Visitor Awards mentions</li>
+        <li>Post-event ROI report</li>
+      </ul>
+      <div class="tier-price"><strong>From ₹5–8 Lakh</strong>· 12 slots</div>
+      <a href="#apply" class="tier-cta">Apply for Hamsafar →</a>
+    </div>
+
+    <div class="tier-big featured">
+      <div class="tier-tag">Most Popular</div>
+      <div class="tier-meta">Tier II · Co-Title</div>
+      <h3 class="tier-name">Saarthi</h3>
+      <div class="tier-slots-info">7 slots · strategic partner</div>
+      <ul>
+        <li>Premium stall + product showcase zone</li>
+        <li>Stage time at every city event</li>
+        <li>Co-branded press releases</li>
+        <li>Dedicated PR + media coverage</li>
+        <li>Govt MoU signing photo-ops</li>
+        <li>Closing summit awards stage (10 seats)</li>
+        <li>Track I Exhibitor Award eligibility</li>
+        <li>Dealer-network onboarding support</li>
+      </ul>
+      <div class="tier-price"><strong>₹15–25 Lakh</strong>· 7 slots</div>
+      <a href="#apply" class="tier-cta">Reserve Saarthi →</a>
+    </div>
+
+    <div class="tier-big">
+      <div class="tier-meta">Tier I · Title</div>
+      <h3 class="tier-name">Pradhaan</h3>
+      <div class="tier-slots-info">1 slot · title sponsor</div>
+      <ul>
+        <li>"Presented by" naming rights</li>
+        <li>HGER becomes "[Brand] HGER 2026"</li>
+        <li>Inaugural ribbon-cut every city</li>
+        <li>Headline closing summit speaker</li>
+        <li>Year-long brand association</li>
+        <li>Top stage during Awards Night</li>
+        <li>First right of refusal for HGER 2027</li>
+        <li>Custom-designed sponsor benefits</li>
+      </ul>
+      <div class="tier-price"><strong>By Invitation</strong>· 1 slot</div>
+      <a href="#apply" class="tier-cta">Apply for Pradhaan →</a>
+    </div>
+
+  </div>
+
+  <p style="text-align: center; margin-top: 32px; font-size: 13px; color: var(--ink-soft); max-width: 700px; margin-left: auto; margin-right: auto;">All tiers include co-branding with HAREDA, DHBVN, and UHBVN. Final packages customised based on category exclusivity and city activation depth.</p>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience-full-section" id="audience">
+  <div class="section-head">
+    <div class="section-eyebrow">Who Walks In</div>
+    <h2 class="section-title">Buyers <em class="blue">with budgets,</em> not browsers.</h2>
+    <p class="section-sub">8 segments. Every one of them carrying procurement budgets, ESG mandates, or buying intent this fiscal year.</p>
+  </div>
+
+  <div class="audience-full-grid">
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      <h3>Schools & Colleges</h3>
+      <span class="pct">14% of footfall</span>
+      <p>1,200+ schools & 80+ colleges seeking rooftop solar under PM Surya Ghar.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+      <h3>Hospitals & Healthcare</h3>
+      <span class="pct">11% of footfall</span>
+      <p>Govt hospitals, clinics, PHCs needing 24×7 solar backup & oxygen plant power.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+      <h3>Govt. & Panchayats</h3>
+      <span class="pct">13% of footfall</span>
+      <p>6,000+ Gram Panchayats with budgets for solar streetlights, EV fleets, retrofits.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13M3 21h18"/><rect x="7" y="11" width="3" height="3"/><rect x="14" y="11" width="3" height="3"/><rect x="7" y="16" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/></svg>
+      <h3>Hotels & Commercial</h3>
+      <span class="pct">12% of footfall</span>
+      <p>ESG-pressured commercial buildings, high-ticket buyers for storage & EV charging.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9M5 10v11h14V10"/><path d="M10 21v-7h4v7"/></svg>
+      <h3>Households</h3>
+      <span class="pct">18% of footfall</span>
+      <p>Homeowners cutting ₹3,000–8,000/month bills with ₹78K Surya Ghar subsidy.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6M8 8l4-4 4 4"/><path d="M3 21c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>
+      <h3>Farmers & FPOs</h3>
+      <span class="pct">15% of footfall</span>
+      <p>PM-KUSUM solar pump buyers (90% subsidised), agri-rooftop & grid sell-back.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2M14 21v-2a4 4 0 014-4h2"/></svg>
+      <h3>Dealers & Distributors</h3>
+      <span class="pct">9% of footfall</span>
+      <p>Aspiring entrepreneurs & existing dealers — your channel partners across Haryana.</p>
+    </div>
+    <div class="aud-card">
+      <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 7l9-4 9 4M5 7v14M19 7v14M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+      <h3>SMEs & Industry</h3>
+      <span class="pct">8% of footfall</span>
+      <p>Manufacturing, cement, plywood plants with ₹5–50L monthly bills. Biggest deals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Why HGER over a Generic Expo</div>
+    <h2 class="section-title">Three things <em class="green">no other event</em> in Haryana offers.</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Exclusivity</h3>
+      <p>Only 20 sponsors total. At a typical green energy expo, 200+ brands compete for attention. At HGER, your brand is one of just 20 — guaranteed visibility, in every city, every day.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>Govt-aligned</h3>
+      <p>Live HAREDA, DHBVN, UHBVN enrolment desks at every stall. Visitors aren't browsing — they're applying for subsidies right next to your booth. Maximum-intent leads.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>10× Reach</h3>
+      <p>One commitment, 10 cities, 50,000+ visitors, 3 months of coverage. Doing this individually city-by-city would cost 5× more — and you'd still not have HAREDA partnership.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="apply-section" id="apply">
+  <div class="apply-wrap">
+    <div class="section-eyebrow" style="margin-bottom: 12px;">Apply Now · Reserve Your Slot</div>
+    <h2>Tell us about your brand.</h2>
+    <p>Drop your details and we'll be in touch within 48 hours to walk you through the right tier for your goals.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch within 48 hours. (This is a demo form.)');">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Designation</label>
+          <input type="text" class="form-input" required placeholder="CMO / Head of Marketing / etc.">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Company Name</label>
+          <input type="text" class="form-input" required placeholder="Your company">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Industry Category</label>
+          <select class="form-select" required>
+            <option value="">Select category</option>
+            <option>Solar — Rooftop / Commercial</option>
+            <option>Solar — Utility / Industrial</option>
+            <option>EV — Two/Three Wheeler</option>
+            <option>EV — Cars / Fleet</option>
+            <option>EV — Charging Infrastructure</option>
+            <option>Energy Storage / Batteries</option>
+            <option>Wind / Hybrid</option>
+            <option>Biofuels / Biogas</option>
+            <option>Green Hydrogen</option>
+            <option>Financial Services — Green Loans</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input type="email" class="form-input" required placeholder="you@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-input" required placeholder="+91 ...">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Sponsorship Interest</label>
+        <select class="form-select" required>
+          <option value="">Pick a tier</option>
+          <option>Pradhaan — Title Sponsor (1 slot)</option>
+          <option>Saarthi — Co-Title (7 slots)</option>
+          <option>Hamsafar — Associate (12 slots)</option>
+          <option>Open to discussion</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tell us about your goals</label>
+        <textarea class="form-textarea" placeholder="What outcomes are you hoping HGER delivers? Brand awareness, dealer network, sales pipeline, ESG storytelling — anything specific."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Submit Application
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </button>
+      <p style="margin-top: 20px; font-size: 12px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;">Or email <a href="mailto:partnerships@hger.in" style="color: var(--green);">partnerships@hger.in</a></p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER (same) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"></div>
+        <span style="color:var(--paper);">HGER<sup style="font-size:10px;color:var(--green-bright);margin-left:4px;">2026</sup></span>
+      </a>
+      <p>Haryana Green Energy Roadshow — a 10-city, 3-month journey to bring renewable energy solutions across solar, wind, EV, biofuels, and clean-tech to institutions and businesses across Haryana.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>The Roadshow</h4>
+      <a href="roadshow.html">Route & Cities</a>
+      <a href="roadshow.html#schedule">Schedule</a>
+      <a href="schemes.html">Govt. Schemes</a>
+      <a href="summit.html">Summit & Awards</a>
+    </div>
+    <div class="footer-col">
+      <h4>For Sponsors</h4>
+      <a href="sponsors.html">Sponsorship Tiers</a>
+      <a href="sponsors.html#audience">Audience</a>
+      <a href="sponsors.html#apply">Apply Now</a>
+      <a href="press.html">Press Kit</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About HGER</a>
+      <a href="about.html#team">Team</a>
+      <a href="press.html">Press & Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:partnerships@hger.in">partnerships@hger.in</a>
+      <a href="mailto:media@hger.in">media@hger.in</a>
+      <a href="tel:+910000000000">+91 XXX XXX XXXX</a>
+      <a href="contact.html">Chandigarh, India</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© HGER 2026 · ALL RIGHTS RESERVED</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
