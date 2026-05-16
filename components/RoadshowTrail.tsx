@@ -22,17 +22,43 @@ export default function RoadshowTrail() {
   
   // Duplicate cities for infinite scroll
   const duplicatedCities = [...reversedCities, ...reversedCities];
-  const [isPaused, setIsPaused] = React.useState(false);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [isHoverPaused, setIsHoverPaused] = React.useState(false);
+  const [isClickPaused, setIsClickPaused] = React.useState(false);
+  const isPaused = isHoverPaused || isClickPaused;
+
+  React.useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationFrameId: number;
+    const scrollSpeed = 1; // Pixels per frame
+
+    const animate = () => {
+      if (!isPaused) {
+        scrollContainer.scrollLeft += scrollSpeed;
+        
+        // Infinite loop: if we've scrolled past the first set of items, reset
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused]);
 
   return (
     <section className="py-24 overflow-hidden relative">
       {/* Section Header */}
-      <div className="px-8 lg:px-20 mb-16">
+      <div className="px-6 lg:px-20 mb-10 md:mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] tracking-tighter mb-4"
+          className="text-3xl sm:text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] tracking-tighter mb-4 text-balance"
         >
           Cities <span className="text-[#1a8a5e] italic font-light">Unfolded.</span>
         </motion.h2>
@@ -41,33 +67,26 @@ export default function RoadshowTrail() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-[#2d4a45]/60 text-base md:text-xl max-w-2xl leading-relaxed"
+          className="text-[#2d4a45]/60 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed text-balance"
         >
           A panoramic journey across Haryana. Our automatic roadshow trail brings the energy vision of every city directly to you.
         </motion.p>
       </div>
 
-      {/* Auto-scrolling Marquee */}
+      {/* Auto-scrolling + Manual Swiping Container */}
       <div 
-        className="relative"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-8 no-scrollbar cursor-grab active:cursor-grabbing px-6 lg:px-20"
+        onMouseEnter={() => setIsHoverPaused(true)}
+        onMouseLeave={() => setIsHoverPaused(false)}
+        onClick={() => setIsClickPaused(!isClickPaused)}
+        style={{ scrollBehavior: 'auto' }}
       >
-        <motion.div 
-          className="flex gap-8"
-          initial={{ x: "0%" }}
-          animate={{ x: isPaused ? undefined : "-50%" }} // Right to Left
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{ width: "fit-content" }}
-        >
+        <div className="flex gap-8 flex-nowrap">
           {duplicatedCities.map((city, i) => (
             <div 
               key={`${city.id}-${i}`} 
-              className="w-[350px] md:w-[450px] h-[550px] flex-shrink-0 relative rounded-[48px] overflow-hidden group cursor-pointer shadow-2xl transition-all duration-500 hover:-translate-y-4"
+              className="w-[280px] sm:w-[350px] md:w-[450px] h-[400px] sm:h-[500px] md:h-[550px] flex-shrink-0 relative rounded-[32px] md:rounded-[48px] overflow-hidden group cursor-pointer shadow-2xl transition-all duration-500 hover:-translate-y-4"
             >
               <Image 
                 src={city.img} 
@@ -90,11 +109,11 @@ export default function RoadshowTrail() {
                   <div className="w-1.5 h-1.5 rounded-full bg-[#2cc985] animate-pulse shadow-[0_0_8px_rgba(44,201,133,0.6)]"></div>
                 </div>
                 
-                <h2 className="text-white text-3xl md:text-5xl font-sans font-bold leading-[1.1] mb-6 group-hover:text-[#2cc985] transition-colors duration-500">
+                <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-sans font-bold leading-[1.1] mb-4 md:mb-6 group-hover:text-[#2cc985] transition-colors duration-500">
                   {city.name}
                 </h2>
                 
-                <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 line-clamp-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 md:mb-8 line-clamp-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                   {city.vision}
                 </p>
                 
@@ -107,7 +126,7 @@ export default function RoadshowTrail() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

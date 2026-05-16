@@ -17,14 +17,14 @@ export default function AwardCategories() {
   ];
 
   return (
-    <section className="py-24 bg-white overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+    <section className="py-16 md:py-24 bg-white overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-xl">
-            <span className="text-[10px] font-black tracking-[0.4em] text-[#1a8a5e] uppercase block mb-6">Recognition Excellence</span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-[#0a1f1c] leading-tight">Award Categories</h2>
+            <span className="text-[9px] font-black tracking-[0.4em] text-[#1a8a5e] uppercase block mb-4 md:mb-6">Recognition Excellence</span>
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-[#0a1f1c] leading-tight text-balance">Award Categories</h2>
           </div>
-          <p className="text-[#2d4a45]/60 text-sm md:text-base font-medium max-w-xs">
+          <p className="text-[#2d4a45]/60 text-sm md:text-base font-medium max-w-xs text-balance">
             Celebrating Impact across two distinct leadership tracks.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function AwardCategories() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#f0f7f4] rounded-[32px] p-10 md:p-14 group hover:bg-[#1a8a5e] transition-all duration-500"
+              className="bg-[#f0f7f4] rounded-[32px] p-8 md:p-14 group hover:bg-[#1a8a5e] transition-all duration-500"
             >
               <div className="flex justify-between items-start mb-12">
                 <div>

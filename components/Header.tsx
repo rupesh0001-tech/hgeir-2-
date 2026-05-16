@@ -2,22 +2,22 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-8 py-4 max-w-[1600px] mx-auto">
+    <header className="flex items-center justify-between px-4 md:px-8 py-4 max-w-[1600px] mx-auto w-full">
       <div className="flex items-center space-x-2">
-        <div className="w-5 h-5 bg-[#1a8a5e] rounded-tl-full rounded-br-full rounded-tr-sm rounded-bl-sm flex items-center justify-center text-white text-[10px]">
+        <div className="w-5 h-5 bg-[#1a8a5e] rounded-tl-full rounded-br-full rounded-tr-sm rounded-bl-sm flex items-center justify-center text-white text-[10px] shrink-0">
           🌱
         </div>
-        <span className="font-bold tracking-widest text-sm">HGER ROADSHOW®</span>
+        <span className="font-bold tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">HGER ROADSHOW®</span>
       </div>
 
-      <nav className="hidden md:flex space-x-12 text-xs font-semibold tracking-wider text-[#2d4a45]">
+      <nav className="hidden lg:flex space-x-8 xl:space-x-12 text-[10px] xl:text-xs font-semibold tracking-wider text-[#2d4a45]">
         <a href="#" className="hover:text-[#0a1f1c] transition-colors flex items-center">HOME <span className="ml-1 text-[8px]">▼</span></a>
         <a href="#" className="hover:text-[#0a1f1c] transition-colors flex items-center">ABOUT US <span className="ml-1 text-[8px]">▼</span></a>
         <a href="#" className="hover:text-[#0a1f1c] transition-colors flex items-center">OUR PROJECTS <span className="ml-1 text-[8px]">▼</span></a>
       </nav>
 
-      <div className="flex items-center space-x-4">
-        <button className="bg-[#1a8a5e] hover:bg-[#0e5a3d] transition-colors text-white text-xs font-bold px-6 py-3 rounded-full tracking-wider">
+      <div className="flex items-center">
+        <button className="bg-[#1a8a5e] hover:bg-[#0e5a3d] transition-colors text-white text-[9px] sm:text-[10px] md:text-xs font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full tracking-wider whitespace-nowrap">
           CONTACT US
         </button>
       </div>

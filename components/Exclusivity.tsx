@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 
 export default function Exclusivity() {
   return (
-    <section className="py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="py-16 md:py-32 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <div>
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 rounded-full bg-[#f0f7f4] border border-[#1a8a5e]/10 text-[#1a8a5e] font-mono text-[9px] font-bold tracking-widest uppercase mb-10 shadow-sm"
+              className="inline-block px-4 py-1.5 rounded-full bg-[#f0f7f4] border border-[#1a8a5e]/10 text-[#1a8a5e] font-mono text-[9px] font-bold tracking-widest uppercase mb-6 md:mb-10 shadow-sm"
             >
               Exclusivity Guaranteed
             </motion.span>
@@ -21,7 +21,7 @@ export default function Exclusivity() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] leading-[1.1] tracking-tight mb-10"
+              className="text-3xl sm:text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] leading-[1.1] tracking-tight mb-8 md:mb-10 text-balance"
             >
               A <span className="text-[#1a8a5e] italic font-light">limited</span> circle of partners.
             </motion.h2>
@@ -59,30 +59,30 @@ export default function Exclusivity() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative bg-[#061412] rounded-[60px] p-10 md:p-14 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.4)] overflow-hidden border border-white/5"
+            className="relative bg-[#061412] rounded-[40px] md:rounded-[60px] p-8 md:p-14 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.4)] overflow-hidden border border-white/5"
           >
             {/* Dot Pattern Overlay */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
             
             <div className="relative z-10">
-              <div className="flex justify-between items-start mb-14">
+              <div className="flex flex-col sm:flex-row justify-between items-start mb-10 md:mb-14 gap-4">
                 <div>
                   <span className="text-[8px] font-black tracking-[0.3em] text-[#2cc985]/50 uppercase block mb-3">Sponsor Slots · Live</span>
-                  <h3 className="text-3xl md:text-4xl font-sans font-bold text-white">14 of 20 open</h3>
+                  <h3 className="text-2xl md:text-4xl font-sans font-bold text-white">14 of 20 open</h3>
                 </div>
                 <div className="bg-[#1a8a5e]/20 border border-[#1a8a5e]/30 px-4 py-1.5 rounded-full">
                   <span className="text-[9px] font-bold text-[#2cc985] tracking-widest uppercase">Live Status</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-5 gap-3 md:gap-4">
+              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                 {Array.from({ length: 20 }).map((_, i) => {
                   const isFilled = i < 6;
                   return (
                     <motion.div 
                       key={i}
                       whileHover={{ scale: 1.05 }}
-                      className={`aspect-square rounded-xl md:rounded-2xl flex items-center justify-center text-[10px] md:text-xs font-bold transition-all duration-500 border ${
+                      className={`aspect-square rounded-lg md:rounded-2xl flex items-center justify-center text-[9px] md:text-xs font-bold transition-all duration-500 border ${
                         isFilled 
                           ? 'bg-[#1a8a5e]/20 border-[#1a8a5e]/40 text-[#2cc985] shadow-[0_0_20px_rgba(44,201,133,0.1)]' 
                           : 'bg-white/[0.03] border-white/5 text-white/20 hover:border-white/20'
@@ -94,19 +94,14 @@ export default function Exclusivity() {
                 })}
               </div>
 
-              <div className="mt-12 flex items-center gap-10">
+              <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-6 md:gap-10">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#2cc985] shadow-[0_0_10px_rgba(44,201,133,0.5)]"></div>
-                  <span className="text-[9px] font-bold text-white/40 tracking-widest uppercase">In Conversation</span>
+                  <span className="text-[8px] sm:text-[9px] font-bold text-white/40 tracking-widest uppercase">Filled</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1a8a5e] shadow-[0_0_10px_rgba(26,138,94,0.5)]"></div>
-                  <span className="text-[9px] font-bold text-[#0a1f1c]/40 tracking-widest uppercase">In Conversation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#1a8a5e]/20"></div>
-                  <span className="text-[9px] font-bold text-[#0a1f1c]/40 tracking-widest uppercase">Open Slot</span>
+                  <span className="text-[8px] sm:text-[9px] font-bold text-white/40 tracking-widest uppercase">Open Slot</span>
                 </div>
               </div>
             </div>

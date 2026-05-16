@@ -27,16 +27,16 @@ export default function SponsorshipTiers() {
   ];
 
   return (
-    <section className="py-32 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-24">
+    <section className="py-16 md:py-32 bg-white relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-24">
           <div className="lg:col-span-7">
-            <span className="text-[10px] font-black tracking-[0.4em] text-[#1a8a5e] uppercase block mb-8">Sponsorship Tiers</span>
+            <span className="text-[10px] font-black tracking-[0.4em] text-[#1a8a5e] uppercase block mb-6 md:mb-8">Sponsorship Tiers</span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] leading-[1.1] tracking-tight mb-8"
+              className="text-3xl sm:text-4xl md:text-6xl font-sans font-bold text-[#0a1f1c] leading-[1.1] tracking-tight mb-6 md:mb-8 text-balance"
             >
               Three tiers. Twenty seats. <br />
               <span className="text-[#1a8a5e] italic font-light relative">
@@ -49,7 +49,7 @@ export default function SponsorshipTiers() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-[#2d4a45]/70 text-base md:text-xl font-medium leading-relaxed max-w-2xl"
+              className="text-[#2d4a45]/70 text-base md:text-xl font-medium leading-relaxed max-w-2xl text-balance"
             >
               Every tier is built around one promise — your brand, in front of the right buyer, in every city we visit. We are selecting partners who share our vision for a sustainable Haryana.
             </motion.p>
@@ -58,7 +58,7 @@ export default function SponsorshipTiers() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 relative h-[300px] rounded-[32px] overflow-hidden shadow-xl"
+            className="lg:col-span-5 relative h-[250px] md:h-[300px] rounded-[32px] overflow-hidden shadow-xl"
           >
             <Image 
               src="/images/clean-tech.png" 
@@ -77,23 +77,23 @@ export default function SponsorshipTiers() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-10 md:p-12 rounded-[32px] border transition-all duration-500 flex flex-col ${
+              className={`p-8 md:p-12 rounded-[32px] border transition-all duration-500 flex flex-col ${
                 tier.featured 
-                  ? 'bg-[#0a1f1c] text-white border-[#1a8a5e]/20 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.2)] scale-105 z-10' 
+                  ? 'bg-[#0a1f1c] text-white border-[#1a8a5e]/20 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.2)] lg:scale-105 z-10' 
                   : 'bg-white text-[#0a1f1c] border-[#1a8a5e]/5 shadow-[0_20px_40px_-10px_rgba(26,138,94,0.04)]'
               }`}
             >
-              <div className="mb-10">
+              <div className="mb-8 md:mb-10">
                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase mb-4 block ${tier.featured ? 'text-[#1a8a5e]' : 'text-[#1a8a5e]/50'}`}>
                   {tier.tier}
                 </span>
-                <h3 className="text-3xl font-sans font-bold mb-3">{tier.name}</h3>
+                <h3 className="text-2xl md:text-3xl font-sans font-bold mb-3">{tier.name}</h3>
                 <p className={`text-[10px] font-bold tracking-widest uppercase ${tier.featured ? 'text-white/40' : 'text-[#0a1f1c]/30'}`}>
                   {tier.slots}
                 </p>
               </div>
               
-              <div className="space-y-4 mb-12 flex-grow">
+              <div className="space-y-4 mb-10 md:mb-12 flex-grow">
                 {tier.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className={`w-1 h-1 rounded-full mt-2 shrink-0 ${tier.featured ? 'bg-[#1a8a5e]' : 'bg-[#1a8a5e]/30'}`}></div>
