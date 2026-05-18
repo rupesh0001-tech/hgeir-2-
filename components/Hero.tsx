@@ -1,6 +1,28 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Hero() {
+  const words = [
+    "GREENER HARYANA",
+    "CLEANER STREETS",
+    "SMARTER CITIES",
+    "HEALTHIER COMMUNITIES",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2800); // Transitions every 2.8 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentWord = words[index];
+  // Smart check to prevent "SUSTAINABLE FUTURE FUTURE" redundancy
+  const showTrailingFuture = !currentWord.endsWith("FUTURE");
+
   return (
     <section className="text-center max-w-6xl mx-auto relative px-6 py-4 md:py-2">
       <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-semibold tracking-tight leading-[1.2] sm:leading-[1.1] mb-6 flex flex-col items-center justify-center uppercase text-[#0a1f1c]">
@@ -13,14 +35,42 @@ export default function Hero() {
           </span>
         </div>
         
-        <div className="mt-2 text-center flex flex-col sm:flex-row items-center justify-center">
+        <div className="mt-2 text-center flex flex-col sm:flex-row items-center justify-center min-h-[1.4em] sm:min-h-[1.3em]">
           <div className="flex items-center justify-center">
             <span className="opacity-90">FOR</span>
-            <span className="italic font-light mx-2 md:mx-4 text-[#1a8a5e] underline decoration-[4px] sm:decoration-[8px] decoration-[#1a8a5e]/40 underline-offset-[6px] sm:underline-offset-[16px] whitespace-nowrap">
-              GREENER HARYANA
-            </span>
+            <div className="inline-flex justify-center items-center overflow-hidden py-2 px-1">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWord}
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -22 }}
+                  transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
+                  className="relative italic font-light mx-2 md:mx-4 text-[#1a8a5e] whitespace-nowrap block pb-2 sm:pb-3 cursor-default select-none"
+                >
+                  {currentWord}
+                  {/* Premium absolute custom underline highlight */}
+                  <span className="absolute bottom-0 left-2 right-2 h-[4px] sm:h-[8px] bg-[#1a8a5e]/25 rounded-full" />
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </div>
-          <span className="opacity-90 mt-1 sm:mt-0">FUTURE</span>
+          
+          <div className="inline-flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              {showTrailingFuture && (
+                <motion.span 
+                  initial={{ opacity: 0, width: 0, scale: 0.8 }}
+                  animate={{ opacity: 0.9, width: "auto", scale: 1 }}
+                  exit={{ opacity: 0, width: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-1 sm:mt-0 whitespace-nowrap overflow-hidden"
+                >
+                  FUTURE
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </h1>
       

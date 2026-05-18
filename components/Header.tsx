@@ -61,7 +61,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav - 7 original links */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-[11px] font-manrope font-bold text-[#546b5c] tracking-wider uppercase relative">
+          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-[11px] font-manrope font-extrabold text-[#0c2415] tracking-wider uppercase relative">
             {navLinks.map((link) => {
               const isActive = pathname === link.href; // Detect if page matches
               
@@ -71,8 +71,8 @@ export default function Header() {
                   href={link.href} 
                   className={`relative py-1 hover:text-[#1a8a5e] transition-colors ${
                     isActive 
-                      ? "text-[#1a8a5e] font-extrabold" 
-                      : "text-[#546b5c]/70 hover:text-[#0c2415]"
+                      ? "text-[#1a8a5e] font-black" 
+                      : "text-[#0c2415] hover:text-[#1a8a5e]"
                   }`}
                 >
                   {link.name}
@@ -130,14 +130,14 @@ export default function Header() {
               className="lg:hidden overflow-hidden w-full"
             >
               <div className="pt-6 pb-4 flex flex-col space-y-4 border-t border-[#e5eae6] mt-4 px-2 max-w-6xl mx-auto w-full">
-                <nav className="flex flex-col space-y-3 font-manrope font-semibold text-xs text-[#546b5c] uppercase tracking-wider">
+                <nav className="flex flex-col space-y-3 font-manrope font-extrabold text-xs text-[#0c2415] uppercase tracking-wider">
                   {navLinks.map((link) => (
                     <Link 
                       key={link.name}
                       href={link.href} 
                       onClick={() => setIsOpen(false)}
                       className={`hover:text-[#1a8a5e] transition-colors py-1.5 flex items-center justify-between ${
-                        pathname === link.href ? "text-[#1a8a5e] font-extrabold" : ""
+                        pathname === link.href ? "text-[#1a8a5e] font-black" : ""
                       }`}
                     >
                       {link.name}
