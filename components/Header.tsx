@@ -51,8 +51,10 @@ export default function Header() {
         <div className="flex items-center justify-between w-full max-w-6xl mx-auto">
           {/* Original HGER Logo */}
           <Link href="/" className="flex items-center space-x-2 shrink-0 group">
-            <div className="w-6 h-6 bg-[#1a8a5e] rounded-tl-full rounded-br-full rounded-tr-sm rounded-bl-sm flex items-center justify-center text-white text-[10px] shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
-              🌱
+            <div className="w-6 h-6 bg-[#1a8a5e] rounded-tl-full rounded-br-full rounded-tr-sm rounded-bl-sm flex items-center justify-center text-white shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M17 8C8 10 7 19 7 19S16 18 18 9C19 4 17 3 17 3S16 4 17 8M12 14C11.5 13.5 11 13 10.5 12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
             </div>
             <span className="font-fraunces font-black text-base sm:text-lg text-[#0c2415] tracking-wide uppercase whitespace-nowrap">
               HGER
