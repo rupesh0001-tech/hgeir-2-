@@ -4,12 +4,12 @@ export default function FinalCTA() {
   return (
     <section className="py-10 md:py-16 bg-white relative overflow-hidden">
       {/* Fade Green Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#1a8a5e]/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#1a8a5e]/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none z-0"></div>
       
       {/* Premium Green Gradient from the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#1b8a5e]/12 via-[#1b8a5e]/2 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-[#1b8a5e]/22 via-[#1b8a5e]/4 to-transparent pointer-events-none z-0"></div>
       
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <span className="text-[10px] font-bold tracking-[0.5em] text-[#1a8a5e] uppercase block mb-6 md:mb-10">
           The Window is Closing
         </span>
