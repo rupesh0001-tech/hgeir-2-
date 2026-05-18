@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="max-w-[1600px] mx-auto px-6 py-12 md:py-16 space-y-20 md:space-y-24">
+    <div className="max-w-[1600px] mx-auto px-6 py-8 md:py-12 space-y-8 md:space-y-12">
       <Hero index={index} words={words} />
       <BentoGrid activeIndex={index} words={words} />
       <RoadshowTrail />

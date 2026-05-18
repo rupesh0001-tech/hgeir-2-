@@ -27,7 +27,7 @@ export default function SponsorshipTiers() {
   ];
 
   return (
-    <section className="py-16 md:py-32 bg-white relative">
+    <section className="py-12 md:py-16 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-24">
           <div className="lg:col-span-7">

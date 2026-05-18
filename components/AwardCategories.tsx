@@ -17,7 +17,7 @@ export default function AwardCategories() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden relative">
+    <section className="py-10 md:py-16 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-xl">

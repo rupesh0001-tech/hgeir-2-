@@ -135,7 +135,7 @@ export default function PoliciesAndSchemes() {
       </section>
 
       {/* Grid Schemes Section (Non-Image, Cards & Icons) */}
-      <section className="py-24 max-w-[1400px] mx-auto w-full px-4 md:px-0 bg-transparent border-t border-slate-100 mt-20">
+      <section className="py-8 md:py-12 max-w-[1400px] mx-auto w-full px-4 md:px-0 bg-transparent border-t border-slate-100 mt-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <span className="text-xs font-bold text-[#1a8a5e] font-mono tracking-[0.2em] uppercase block mb-3">

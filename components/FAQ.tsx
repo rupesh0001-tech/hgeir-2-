@@ -33,7 +33,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-20 max-w-[1400px] mx-auto w-full px-4 md:px-0 bg-transparent border-t border-slate-100 mt-16">
+    <section className="py-8 md:py-12 max-w-[1400px] mx-auto w-full px-4 md:px-0 bg-transparent border-t border-slate-100 mt-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         
         {/* Left Column: CTA Card */}

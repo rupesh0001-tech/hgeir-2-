@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function FinalCTA() {
   return (
-    <section className="py-16 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-10 md:py-16 bg-white relative overflow-hidden">
       {/* Fade Green Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#1a8a5e]/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none -z-10"></div>
       

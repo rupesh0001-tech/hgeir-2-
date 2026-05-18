@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function SummitAndAwards() {
   return (
-    <section className="py-32 bg-[#f0f7f4] overflow-hidden relative">
+    <section className="py-12 md:py-16 bg-[#f0f7f4] overflow-hidden relative">
       {/* Animated Mesh Gradients for Color depth */}
       <motion.div 
         animate={{ 

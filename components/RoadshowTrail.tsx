@@ -108,7 +108,7 @@ export default function RoadshowTrail() {
 
   return (
     <>
-      <section className="py-24 overflow-hidden relative">
+      <section className="py-8 md:py-12 overflow-hidden relative">
         {/* Section Header */}
         <div className="px-6 lg:px-20 mb-10 md:mb-16">
           <motion.h2 
@@ -187,7 +187,7 @@ export default function RoadshowTrail() {
       </section>
 
       {/* Accordion-Style Slice Section from Commit */}
-      <section className="py-24 max-w-[1400px] mx-auto w-full px-4 md:px-0">
+      <section className="py-8 md:py-12 max-w-[1400px] mx-auto w-full px-4 md:px-0">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-sm font-bold text-[#1b8a5e] font-mono tracking-[0.2em] uppercase mb-3">
