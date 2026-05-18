@@ -1,20 +1,19 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function RoadshowTrail() {
   const cities = [
-    { id: "01", name: "Palwal", vision: "Sustainable urban planning and solar integration.", category: "City Vision", img: "/city1.png" },
-    { id: "02", name: "Rewari", vision: "Pioneering smart-grid technology and green logistics.", category: "City Vision", img: "/city2.png" },
-    { id: "03", name: "Charkhi Dadri", vision: "Community-led renewable energy cooperatives.", category: "City Vision", img: "/city1.png" },
-    { id: "04", name: "Hisar", vision: "Transforming the education hub into a leading center.", category: "City Vision", img: "/city2.png" },
-    { id: "05", name: "Sirsa", vision: "Agricultural energy transformation through biogas.", category: "City Vision", img: "/city1.png" },
-    { id: "06", name: "Rohtak", vision: "Electrifying the heart with EV charging networks.", category: "City Vision", img: "/city2.png" },
-    { id: "07", name: "Sonipat", vision: "Industrial decarbonization through waste-to-energy.", category: "City Vision", img: "/city1.png" },
-    { id: "08", name: "Karnal", vision: "Modernizing agriculture with solar irrigation.", category: "City Vision", img: "/city2.png" },
-    { id: "09", name: "Yamunanagar", vision: "Hydro-energy optimization and manufacturing.", category: "City Vision", img: "/city1.png" },
-    { id: "10", name: "Chandigarh", vision: "Final summit: Unifying the roadmap for net-zero.", category: "City Vision", img: "/city2.png" },
+    { id: "01", name: "Palwal", vision: "Sustainable urban planning and solar integration.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Kos_Minar_001.jpg" },
+    { id: "02", name: "Rewari", vision: "Pioneering smart-grid technology and green logistics.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rewari_Railway_Heritage_Museum.JPG" },
+    { id: "03", name: "Charkhi Dadri", vision: "Community-led renewable energy cooperatives.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Village_Gate_of_Pipli%2CSirsa.jpg" },
+    { id: "04", name: "Hisar", vision: "Transforming the education hub into a leading center.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Fort_of_Firoz_Shah_Tughlaq_at_Hisar.jpg" },
+    { id: "05", name: "Sirsa", vision: "Agricultural energy transformation through biogas.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Village_Gate_of_Pipli%2CSirsa.jpg" },
+    { id: "06", name: "Rohtak", vision: "Electrifying the heart with EV charging networks.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Rohtak_Police_Lines.jpg" },
+    { id: "07", name: "Sonipat", vision: "Industrial decarbonization through waste-to-energy.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/2/29/Sonipat_Railway_Station.jpg" },
+    { id: "08", name: "Karnal", vision: "Modernizing agriculture with solar irrigation.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Victoria_Memorial_Hall%2C_KARNAL.jpg" },
+    { id: "09", name: "Yamunanagar", vision: "Hydro-energy optimization and manufacturing.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Yamuna_Nagar.jpg" },
+    { id: "10", name: "Chandigarh", vision: "Final summit: Unifying the roadmap for net-zero.", category: "City Vision", img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Sukhna_Lake_Chandigarh.jpg" },
   ];
 
   // Reverse cities for the new order
@@ -89,11 +88,10 @@ export default function RoadshowTrail() {
                 key={`${city.id}-${i}`} 
                 className="w-[280px] sm:w-[350px] md:w-[450px] h-[400px] sm:h-[500px] md:h-[550px] flex-shrink-0 relative rounded-[32px] md:rounded-[48px] overflow-hidden group cursor-pointer shadow-2xl transition-all duration-500 hover:-translate-y-4"
               >
-                <Image 
+                <img 
                   src={city.img} 
                   alt={city.name} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f1c]/95 via-[#0a1f1c]/30 to-transparent"></div>
                 
@@ -149,27 +147,26 @@ export default function RoadshowTrail() {
 
         <div className="flex flex-col md:flex-row h-[550px] gap-2 md:gap-2.5 overflow-hidden">
           {[
-            { id: "01", name: "Palwal", vision: "Sustainable urban planning and solar integration.", color: "bg-[#fbfdfc]", img: "/city1.png" },
-            { id: "02", name: "Rewari", vision: "Pioneering smart-grid technology and green logistics.", color: "bg-[#f0f7f4]", img: "/city2.png" },
-            { id: "03", name: "Charkhi Dadri", vision: "Community-led renewable energy cooperatives.", color: "bg-[#e3eee9]", img: "/city1.png" },
-            { id: "04", name: "Hisar", vision: "Transforming the education hub into a leading center.", color: "bg-[#dcf0c5]", img: "/city2.png" },
-            { id: "05", name: "Sirsa", vision: "Agricultural energy transformation through biogas.", color: "bg-[#b2e672]", img: "/city1.png" },
-            { id: "06", name: "Rohtak", vision: "Electrifying the heart with EV charging networks.", color: "bg-[#1a8a5e]", dark: true, img: "/city2.png" },
-            { id: "07", name: "Sonipat", vision: "Industrial decarbonization through waste-to-energy.", color: "bg-[#0e5a3d]", dark: true, img: "/city1.png" },
-            { id: "08", name: "Karnal", vision: "Modernizing agriculture with solar irrigation.", color: "bg-[#0a1f1c]", dark: true, img: "/city2.png" },
-            { id: "09", name: "Yamunanagar", vision: "Hydro-energy optimization and manufacturing.", color: "bg-[#2d4a45]", dark: true, img: "/city1.png" },
-            { id: "10", name: "Chandigarh", vision: "Final summit: Unifying the roadmap for net-zero.", color: "bg-[#1a8a5e]", dark: true, img: "/city2.png" },
+            { id: "01", name: "Palwal", vision: "Sustainable urban planning and solar integration.", color: "bg-[#fbfdfc]", img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Kos_Minar_001.jpg" },
+            { id: "02", name: "Rewari", vision: "Pioneering smart-grid technology and green logistics.", color: "bg-[#f0f7f4]", img: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rewari_Railway_Heritage_Museum.JPG" },
+            { id: "03", name: "Charkhi Dadri", vision: "Community-led renewable energy cooperatives.", color: "bg-[#e3eee9]", img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Village_Gate_of_Pipli%2CSirsa.jpg" },
+            { id: "04", name: "Hisar", vision: "Transforming the education hub into a leading center.", color: "bg-[#dcf0c5]", img: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Fort_of_Firoz_Shah_Tughlaq_at_Hisar.jpg" },
+            { id: "05", name: "Sirsa", vision: "Agricultural energy transformation through biogas.", color: "bg-[#b2e672]", img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Village_Gate_of_Pipli%2CSirsa.jpg" },
+            { id: "06", name: "Rohtak", vision: "Electrifying the heart with EV charging networks.", color: "bg-[#1a8a5e]", dark: true, img: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Rohtak_Police_Lines.jpg" },
+            { id: "07", name: "Sonipat", vision: "Industrial decarbonization through waste-to-energy.", color: "bg-[#0e5a3d]", dark: true, img: "https://upload.wikimedia.org/wikipedia/commons/2/29/Sonipat_Railway_Station.jpg" },
+            { id: "08", name: "Karnal", vision: "Modernizing agriculture with solar irrigation.", color: "bg-[#0a1f1c]", dark: true, img: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Victoria_Memorial_Hall%2C_KARNAL.jpg" },
+            { id: "09", name: "Yamunanagar", vision: "Hydro-energy optimization and manufacturing.", color: "bg-[#2d4a45]", dark: true, img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Yamuna_Nagar.jpg" },
+            { id: "10", name: "Chandigarh", vision: "Final summit: Unifying the roadmap for net-zero.", color: "bg-[#1a8a5e]", dark: true, img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Sukhna_Lake_Chandigarh.jpg" },
           ].map((city) => (
             <div 
               key={city.id}
               className={`group relative flex-1 hover:flex-[5] transition-all duration-700 ease-in-out ${city.color} rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-2xl`}
             >
               {/* Background Image */}
-              <Image 
+              <img 
                 src={city.img}
                 alt={city.name}
-                fill
-                className="object-cover opacity-0 group-hover:opacity-100 z-0"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 z-0"
               />
               
               {/* Background Overlays - Removed fades as requested */}

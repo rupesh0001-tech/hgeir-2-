@@ -9,6 +9,7 @@ import Exclusivity from "@/components/Exclusivity";
 import SummitAndAwards from "@/components/SummitAndAwards";
 import AwardCategories from "@/components/AwardCategories";
 import SponsorshipTiers from "@/components/SponsorshipTiers";
+import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
       <SummitAndAwards />
       <AwardCategories />
       <SponsorshipTiers />
+      <FAQ />
       <FinalCTA />
     </div>
   );

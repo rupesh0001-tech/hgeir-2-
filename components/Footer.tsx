@@ -21,11 +21,32 @@ export default function Footer() {
               Haryana&apos;s largest clean energy outreach program. Bringing renewable energy solutions across solar, wind, EV, and clean-tech to every district.
             </p>
             <div className="flex gap-3">
-               {['FB', 'X', 'LN', 'IG'].map((social) => (
-                 <div key={social} className="w-8 h-8 rounded-lg border border-white/5 flex items-center justify-center text-[9px] font-bold hover:bg-[#1a8a5e] hover:border-[#1a8a5e] cursor-pointer transition-all">
-                   {social}
-                 </div>
-               ))}
+              {/* Facebook */}
+              <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-white hover:bg-gradient-to-r hover:from-[#69C242] hover:to-[#50AC26] hover:border-transparent cursor-pointer transition-all shadow-sm">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h2V2h-3a4 4 0 0 0-4 4v2z" />
+                </svg>
+              </a>
+              {/* X / Twitter */}
+              <a href="#" aria-label="X (Twitter)" className="w-9 h-9 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-white hover:bg-gradient-to-r hover:from-[#69C242] hover:to-[#50AC26] hover:border-transparent cursor-pointer transition-all shadow-sm">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              {/* LinkedIn */}
+              <a href="#" aria-label="LinkedIn" className="w-9 h-9 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-white hover:bg-gradient-to-r hover:from-[#69C242] hover:to-[#50AC26] hover:border-transparent cursor-pointer transition-all shadow-sm">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              {/* Instagram */}
+              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-white hover:bg-gradient-to-r hover:from-[#69C242] hover:to-[#50AC26] hover:border-transparent cursor-pointer transition-all shadow-sm">
+                <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
             </div>
           </div>
 

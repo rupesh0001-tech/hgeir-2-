@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HGER 2026 — Haryana Green Energy Roadshow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ========== TOKENS — RENEWABLE BLUE + GREEN ========== */
+  :root {
+    --bg: #f0f7f4;             /* misty mint */
+    --bg-alt: #e3eee9;
+    --paper: #fbfdfc;
+    --ink: #0a1f1c;            /* deep forest ink */
+    --ink-soft: #2d4a45;
+    --green: #1a8a5e;          /* primary green */
+    --green-deep: #0e5a3d;
+    --green-bright: #2cc985;   /* accent fresh green */
+    --blue: #1e6fb8;           /* primary blue (sky/water) */
+    --blue-deep: #0d4a82;
+    --blue-bright: #4a9fdc;    /* accent sky blue */
+    --teal: #0fa3a3;           /* bridge between blue & green */
+    --teal-deep: #086868;
+    --sun: #f4c430;            /* subtle warm accent */
+    --line: rgba(10, 31, 28, 0.15);
+    --line-soft: rgba(10, 31, 28, 0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(10,31,28,0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .display { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ========== NAV ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(240, 247, 244, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-mark {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: conic-gradient(from 220deg, var(--green) 0deg, var(--teal) 90deg, var(--blue) 180deg, var(--green-bright) 270deg, var(--green) 360deg);
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--ink);
+    position: relative;
+  }
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: var(--bg);
+    border-radius: 50%;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--green);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    padding: 10px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover {
+    background: var(--green);
+    transform: translateY(-1px);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 10%; right: -10%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 201, 133, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74, 159, 220, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--green);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 110px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .hero h1 .accent-green {
+    font-style: italic;
+    color: var(--green);
+    font-weight: 300;
+  }
+  .hero h1 .accent-blue {
+    font-style: italic;
+    color: var(--blue);
+    font-weight: 300;
+  }
+  .hero h1 .small {
+    display: block;
+    font-size: 0.4em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    font-style: normal;
+    line-height: 1.4;
+  }
+
+  .hero-tagline {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    padding: 18px 32px;
+    background: var(--green);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-primary:hover {
+    background: var(--green-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px rgba(14, 90, 61, 0.4);
+  }
+  .btn-primary svg { transition: transform 0.3s ease; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .btn-ghost {
+    padding: 18px 28px;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  /* HERO VISUAL — RENEWABLE ECOSYSTEM ILLUSTRATION */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-illustration {
+    width: 92%;
+    height: 92%;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 20px 40px rgba(10, 31, 28, 0.12));
+  }
+
+  .eco-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+  .eco-ring.r2 { inset: 30px; border-color: var(--line-soft); border-style: dashed; }
+  .eco-ring.r3 { inset: 60px; border-color: var(--line-soft); }
+  .eco-ring.spin { animation: spin 80s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Wind turbine animations */
+  .turbine-spin {
+    transform-origin: center;
+    animation: turbine-rotate 4s linear infinite;
+  }
+  .turbine-spin-slow {
+    transform-origin: center;
+    animation: turbine-rotate 6s linear infinite;
+  }
+  @keyframes turbine-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Floating hero stat badges */
+  .hero-badge {
+    position: absolute;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 20px;
+    box-shadow: 0 12px 32px -10px rgba(10, 31, 28, 0.15);
+    z-index: 3;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(8px);
+  }
+  .hero-badge:hover { transform: translateY(-4px); }
+
+  .hero-badge .badge-num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hero-badge .badge-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .hero-badge.b1 {
+    top: 5%; left: -8%;
+    border-left: 3px solid var(--green);
+    animation: float 5s ease-in-out infinite;
+  }
+  .hero-badge.b2 {
+    top: 18%; right: -5%;
+    border-left: 3px solid var(--blue);
+    animation: float 5s ease-in-out infinite 1.2s;
+  }
+  .hero-badge.b3 {
+    bottom: 22%; left: -10%;
+    border-left: 3px solid var(--teal);
+    animation: float 5s ease-in-out infinite 2s;
+  }
+  .hero-badge.b4 {
+    bottom: 6%; right: -3%;
+    border-left: 3px solid var(--green-bright);
+    animation: float 5s ease-in-out infinite 0.6s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ========== STATS BAR ========== */
+  .stats {
+    max-width: 1400px;
+    margin: 80px auto 0;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 1;
+  }
+  .stat {
+    padding: 32px 24px;
+    border-right: 1px solid var(--line-soft);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .stat-num .plus { color: var(--green); font-style: italic; }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+
+  /* ========== SECTION COMMON ========== */
+  section { padding: 120px 40px; }
+
+  .section-head {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    margin-bottom: 24px;
+  }
+  .section-eyebrow::before {
+    content: '§';
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .section-title em.green { color: var(--green); font-weight: 300; }
+  .section-title em.blue { color: var(--blue); font-weight: 300; }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin-top: 24px;
+    line-height: 1.6;
+  }
+
+  /* ========== ROUTE / CITIES ========== */
+  .route-section {
+    background: var(--paper);
+    position: relative;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .route-map {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 60px 0;
+  }
+
+  .route-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .city-list {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .city {
+    padding: 28px 20px;
+    border-right: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  .city:nth-child(5n) { border-right: none; }
+  .city:nth-child(n+6) { border-bottom: none; }
+  .city:hover { background: var(--bg); }
+
+  .city-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.1em;
+  }
+  .city-name {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 8px;
+    letter-spacing: -0.02em;
+  }
+  .city-detail {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== GOVERNMENT SCHEMES ========== */
+  .schemes-section {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .schemes-section::before {
+    content: '';
+    position: absolute;
+    top: 80px; right: -100px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 201, 133, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .schemes-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .scheme-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+  .scheme-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--teal) 50%, var(--blue) 100%);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  .scheme-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px -16px rgba(10, 31, 28, 0.18);
+    border-color: var(--green);
+  }
+  .scheme-card:hover::before { opacity: 1; }
+
+  .scheme-card.featured {
+    background: linear-gradient(135deg, rgba(26, 138, 94, 0.06) 0%, rgba(30, 111, 184, 0.04) 100%);
+    border-color: var(--green);
+  }
+  .scheme-card.featured::before {
+    height: 5px;
+    opacity: 1;
+  }
+
+  .scheme-flag {
+    display: inline-block;
+    background: var(--bg-alt);
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    border: 1px solid var(--line-soft);
+  }
+  .scheme-flag.highlight {
+    background: var(--green);
+    color: var(--paper);
+    border-color: var(--green);
+  }
+  .scheme-flag.state {
+    background: var(--blue);
+    color: var(--paper);
+    border-color: var(--blue);
+  }
+
+  .scheme-icon {
+    width: 56px; height: 56px;
+    color: var(--green);
+    margin-bottom: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    padding: 12px;
+  }
+  .scheme-icon svg { width: 100%; height: 100%; }
+
+  .scheme-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+
+  .scheme-tagline {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    min-height: 44px;
+  }
+
+  .scheme-stat {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 13px;
+  }
+  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-row:first-child { padding-top: 0; }
+  .stat-row .stat-label {
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .stat-row .stat-value {
+    color: var(--ink);
+    font-weight: 600;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .scheme-bar {
+    position: relative;
+    background: var(--bg-alt);
+    border-radius: 999px;
+    height: 28px;
+    overflow: hidden;
+    border: 1px solid var(--line-soft);
+  }
+  .bar-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    border-radius: 999px;
+    opacity: 0.25;
+  }
+  .bar-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* SAVINGS STRIP */
+  .savings-strip {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--green-deep) 100%);
+    border-radius: 24px;
+    padding: 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .savings-strip::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green-bright) 0%, transparent 60%);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .strip-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .strip-icon {
+    flex-shrink: 0;
+    width: 80px; height: 80px;
+    color: var(--green-bright);
+    background: rgba(44, 201, 133, 0.12);
+    border: 1px solid rgba(44, 201, 133, 0.3);
+    border-radius: 20px;
+    padding: 16px;
+  }
+  .strip-icon svg { width: 100%; height: 100%; }
+
+  .strip-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green-bright);
+    margin-bottom: 8px;
+  }
+  .strip-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .strip-num {
+    color: var(--green-bright);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .strip-sub {
+    font-size: 14px;
+    color: rgba(251, 253, 252, 0.7);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* ========== EXCLUSIVITY ========== */
+  .exclusive {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .exclusive::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+  .exclusive::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blue) 0%, transparent 70%);
+    opacity: 0.4;
+  }
+
+  .exclusive .section-eyebrow { color: var(--green-bright); }
+  .exclusive .section-eyebrow::before { color: var(--green-bright); }
+
+  .exclusive-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .exclusive h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .exclusive h2 .num {
+    color: var(--green-bright);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .exclusive p {
+    color: rgba(251, 253, 252, 0.7);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  /* SLOTS GRID */
+  .slots-card {
+    background: rgba(251, 253, 252, 0.04);
+    border: 1px solid rgba(251, 253, 252, 0.12);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(8px);
+  }
+
+  .slots-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(251, 253, 252, 0.12);
+  }
+  .slots-header .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(251, 253, 252, 0.6);
+  }
+  .slots-header .count {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--green-bright);
+    font-style: italic;
+  }
+
+  .slots-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .slot {
+    aspect-ratio: 1;
+    border: 1px solid rgba(251, 253, 252, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(251, 253, 252, 0.4);
+    transition: all 0.3s ease;
+  }
+  .slot.taken {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--paper);
+  }
+  .slot.taken:hover { transform: scale(1.05); }
+  .slot.open {
+    background: rgba(44, 201, 133, 0.1);
+    border-color: rgba(44, 201, 133, 0.4);
+    color: var(--green-bright);
+  }
+  .slot.open:hover {
+    background: var(--green-bright);
+    color: var(--ink);
+    transform: scale(1.05);
+  }
+
+  .slot-legend {
+    display: flex;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(251, 253, 252, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .legend-dot.taken { background: var(--blue); }
+  .legend-dot.open { background: var(--green-bright); }
+
+  /* ========== TIERS ========== */
+  .tiers-section { background: var(--bg-alt); }
+
+  .tiers-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .tier {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 40px 32px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  .tier:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px rgba(10, 31, 28, 0.2);
+  }
+
+  .tier.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .tier.featured .tier-name { color: var(--green-bright); }
+  .tier.featured .tier-meta { color: rgba(251, 253, 252, 0.5); }
+  .tier.featured ul li { color: rgba(251, 253, 252, 0.85); }
+  .tier.featured ul li::before { color: var(--green-bright); }
+  .tier.featured .tier-cta {
+    background: var(--green-bright);
+    color: var(--ink);
+  }
+  .tier.featured .tier-cta:hover { background: #4dd99a; }
+  .tier.featured .tier-slots { border-color: rgba(251, 253, 252, 0.15); }
+
+  .tier-tag {
+    position: absolute;
+    top: -12px; right: 24px;
+    background: var(--green);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  .tier-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+
+  .tier-name {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .tier-slots {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .tier ul { list-style: none; }
+  .tier ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .tier ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .tier-cta {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 14px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .tier-cta:hover {
+    background: var(--green);
+  }
+
+  /* ========== AUDIENCE ========== */
+  .audience-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .audience-card {
+    padding: 40px 32px;
+    border-right: 1px solid var(--line-soft);
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  .audience-card:last-child { border-right: none; }
+  .audience-card:hover { background: var(--bg); }
+
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  .audience-card:hover::before { opacity: 1; }
+  .audience-card:nth-child(1)::before { background: var(--green); }
+  .audience-card:nth-child(2)::before { background: var(--blue); }
+  .audience-card:nth-child(3)::before { background: var(--teal); }
+  .audience-card:nth-child(4)::before { background: var(--green-bright); }
+
+  .audience-icon {
+    width: 48px; height: 48px;
+    margin-bottom: 24px;
+  }
+  .audience-card:nth-child(1) .audience-icon { color: var(--green); }
+  .audience-card:nth-child(2) .audience-icon { color: var(--blue); }
+  .audience-card:nth-child(3) .audience-icon { color: var(--teal); }
+  .audience-card:nth-child(4) .audience-icon { color: var(--green-bright); }
+
+  .audience-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .audience-card .pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .audience-card:nth-child(1) .pct { color: var(--green); }
+  .audience-card:nth-child(2) .pct { color: var(--blue); }
+  .audience-card:nth-child(3) .pct { color: var(--teal); }
+  .audience-card:nth-child(4) .pct { color: var(--green-bright); }
+
+  .audience-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ========== CTA FINAL ========== */
+  .final-cta {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--teal-deep) 50%, var(--blue-deep) 100%);
+    color: var(--paper);
+    text-align: center;
+    padding: 140px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 201, 133, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .final-cta-inner { position: relative; z-index: 1; }
+
+  .final-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 110px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    max-width: 900px;
+    margin: 0 auto 32px;
+  }
+  .final-cta h2 em {
+    color: var(--green-bright);
+    font-weight: 300;
+  }
+
+  .final-cta p {
+    font-size: 18px;
+    color: rgba(251, 253, 252, 0.75);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .final-cta .btn-primary {
+    background: var(--green-bright);
+    color: var(--ink);
+    padding: 22px 40px;
+    font-size: 15px;
+  }
+  .final-cta .btn-primary:hover {
+    background: #4dd99a;
+    box-shadow: 0 12px 24px -8px rgba(44, 201, 133, 0.5);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(251, 253, 252, 0.12);
+  }
+  .footer-brand .logo { color: var(--paper); margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 14px;
+    color: rgba(251, 253, 252, 0.6);
+    line-height: 1.6;
+    max-width: 360px;
+  }
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(251, 253, 252, 0.5);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(251, 253, 252, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+  }
+  .footer-col a:hover { color: var(--green-bright); }
+  .footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(251, 253, 252, 0.4);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== ENTRANCE ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow, .hero h1, .hero-tagline, .hero-actions {
+    animation: fadeUp 0.9s ease forwards;
+    opacity: 0;
+  }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-tagline { animation-delay: 0.25s; }
+  .hero-actions { animation-delay: 0.4s; }
+  .hero-eyebrow { animation-delay: 0s; }
+
+  .hero-visual {
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 120px 20px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { max-width: 360px; margin: 0 auto; }
+    .hero-badge { padding: 10px 14px; }
+    .hero-badge .badge-num { font-size: 22px; }
+    .hero-badge .badge-label { font-size: 9px; }
+    .hero-badge.b1 { left: -4%; }
+    .hero-badge.b2 { right: -2%; }
+    .hero-badge.b3 { left: -5%; }
+    .hero-badge.b4 { right: -1%; }
+    .stats { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line-soft); }
+    section { padding: 80px 20px; }
+    .city-list { grid-template-columns: repeat(2, 1fr); }
+    .city:nth-child(5n) { border-right: 1px solid var(--line-soft); }
+    .city:nth-child(2n) { border-right: none; }
+    .city:nth-child(n+6) { border-bottom: 1px solid var(--line-soft); }
+    .schemes-grid { grid-template-columns: 1fr; gap: 16px; }
+    .savings-strip { padding: 32px 24px; }
+    .strip-content { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .strip-icon { width: 56px; height: 56px; }
+    .exclusive-grid { grid-template-columns: 1fr; gap: 40px; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    .audience-card { border-right: 1px solid var(--line-soft); }
+    .audience-card:nth-child(2n) { border-right: none; }
+    .audience-card:nth-child(-n+2) { border-bottom: 1px solid var(--line-soft); }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .final-cta { padding: 80px 20px; }
+    .slots-card { padding: 24px; }
+    .slots-grid { gap: 6px; }
+  }
+
+  @media (max-width: 1100px) and (min-width: 901px) {
+    .schemes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark"></div>
+    <span>HGER<sup style="font-size:10px;color:var(--green);margin-left:4px;">2026</sup></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#cities">The Route</a></li>
+    <li><a href="#schemes">Govt. Schemes</a></li>
+    <li><a href="#exclusive">20 Slots</a></li>
+    <li><a href="#sponsors">Sponsorship</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Reserve a Slot</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Haryana Green Energy Roadshow · Edition I · 2026</div>
+      <h1>
+        10 Cities, <span class="accent-green">One Vision:</span><br/>
+        A Greener <span class="accent-blue">Haryana.</span>
+        <span class="small">A 3-month, 10-city journey across Haryana — bringing solar, wind, EV, biofuels, and clean-tech directly to the people, institutions, and businesses ready to adopt them.</span>
+      </h1>
+      <p class="hero-tagline">
+        From Sirsa to Chandigarh, HGER puts every leader in renewable energy face-to-face with 50,000+ buyers — schools, hospitals, government bodies, and commercial enterprises across rural and semi-urban Haryana.
+      </p>
+      <div class="hero-actions">
+        <a href="#exclusive" class="btn-primary">
+          Become a Founding Sponsor
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </a>
+        <a href="#cities" class="btn-ghost">Explore the Route</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- Animated background rings -->
+      <div class="eco-ring spin"></div>
+      <div class="eco-ring r2"></div>
+      <div class="eco-ring r3"></div>
+
+      <!-- Central layered SVG illustration -->
+      <svg class="hero-illustration" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Sky gradient -->
+          <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#4a9fdc" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#2cc985" stop-opacity="0.05"/>
+          </linearGradient>
+          <!-- Land gradient -->
+          <linearGradient id="land" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1a8a5e"/>
+            <stop offset="100%" stop-color="#0e5a3d"/>
+          </linearGradient>
+          <!-- Wind blade gradient -->
+          <linearGradient id="blade" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fbfdfc"/>
+            <stop offset="100%" stop-color="#e3eee9"/>
+          </linearGradient>
+          <!-- Solar panel gradient -->
+          <linearGradient id="solar" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e6fb8"/>
+            <stop offset="100%" stop-color="#0d4a82"/>
+          </linearGradient>
+          <!-- Sun gradient -->
+          <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f4c430"/>
+            <stop offset="70%" stop-color="#f4c430" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#f4c430" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Background sky circle -->
+        <circle cx="250" cy="250" r="200" fill="url(#sky)" stroke="rgba(10,31,28,0.08)" stroke-width="1"/>
+
+        <!-- Sun with glow -->
+        <circle cx="370" cy="140" r="60" fill="url(#sun)"/>
+        <circle cx="370" cy="140" r="22" fill="#f4c430"/>
+        <!-- Sun rays -->
+        <g stroke="#f4c430" stroke-width="2" stroke-linecap="round" opacity="0.7">
+          <line x1="370" y1="100" x2="370" y2="88"/>
+          <line x1="370" y1="180" x2="370" y2="192"/>
+          <line x1="330" y1="140" x2="318" y2="140"/>
+          <line x1="410" y1="140" x2="422" y2="140"/>
+          <line x1="342" y1="112" x2="334" y2="104"/>
+          <line x1="398" y1="168" x2="406" y2="176"/>
+          <line x1="398" y1="112" x2="406" y2="104"/>
+          <line x1="342" y1="168" x2="334" y2="176"/>
+        </g>
+
+        <!-- Floating clouds -->
+        <g fill="#fbfdfc" opacity="0.8">
+          <ellipse cx="130" cy="120" rx="28" ry="10"/>
+          <ellipse cx="148" cy="115" rx="22" ry="9"/>
+          <ellipse cx="180" cy="180" rx="18" ry="7"/>
+        </g>
+
+        <!-- LAND / hill base -->
+        <path d="M 50 380 Q 180 340, 250 360 T 450 380 L 450 450 L 50 450 Z" fill="url(#land)"/>
+        <!-- Land highlight -->
+        <path d="M 50 380 Q 180 340, 250 360 T 450 380" fill="none" stroke="#2cc985" stroke-width="1.5" opacity="0.5"/>
+
+        <!-- WIND TURBINE 1 (back, smaller) -->
+        <g transform="translate(110, 280)">
+          <line x1="0" y1="0" x2="0" y2="100" stroke="#fbfdfc" stroke-width="3" stroke-linecap="round"/>
+          <g class="turbine-spin-slow">
+            <circle cx="0" cy="0" r="4" fill="#0a1f1c"/>
+            <path d="M 0 0 L -3 -32 L 3 -32 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+            <path d="M 0 0 L 28 16 L 26 22 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+            <path d="M 0 0 L -28 16 L -26 22 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+          </g>
+        </g>
+
+        <!-- WIND TURBINE 2 (foreground, larger) -->
+        <g transform="translate(180, 240)">
+          <line x1="0" y1="0" x2="0" y2="140" stroke="#fbfdfc" stroke-width="4" stroke-linecap="round"/>
+          <g class="turbine-spin">
+            <circle cx="0" cy="0" r="6" fill="#0a1f1c"/>
+            <path d="M 0 0 L -4 -45 L 4 -45 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+            <path d="M 0 0 L 40 22 L 36 30 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+            <path d="M 0 0 L -40 22 L -36 30 Z" fill="url(#blade)" stroke="#0a1f1c" stroke-width="0.5"/>
+          </g>
+        </g>
+
+        <!-- SOLAR PANEL ARRAY (right side) -->
+        <g transform="translate(280, 320)">
+          <!-- Panel 1 -->
+          <g transform="skewX(-18)">
+            <rect x="0" y="0" width="80" height="50" fill="url(#solar)" stroke="#0a1f1c" stroke-width="1.5" rx="2"/>
+            <line x1="20" y1="0" x2="20" y2="50" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+            <line x1="40" y1="0" x2="40" y2="50" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+            <line x1="60" y1="0" x2="60" y2="50" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+            <line x1="0" y1="25" x2="80" y2="25" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+          </g>
+          <!-- Panel stand -->
+          <line x1="35" y1="50" x2="35" y2="65" stroke="#0a1f1c" stroke-width="2"/>
+          <line x1="50" y1="50" x2="50" y2="65" stroke="#0a1f1c" stroke-width="2"/>
+        </g>
+
+        <!-- SOLAR PANEL 2 (smaller) -->
+        <g transform="translate(385, 340)">
+          <g transform="skewX(-18)">
+            <rect x="0" y="0" width="50" height="32" fill="url(#solar)" stroke="#0a1f1c" stroke-width="1.5" rx="2"/>
+            <line x1="16.6" y1="0" x2="16.6" y2="32" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+            <line x1="33.3" y1="0" x2="33.3" y2="32" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+            <line x1="0" y1="16" x2="50" y2="16" stroke="#4a9fdc" stroke-width="0.5" opacity="0.6"/>
+          </g>
+          <line x1="22" y1="32" x2="22" y2="42" stroke="#0a1f1c" stroke-width="1.5"/>
+          <line x1="32" y1="32" x2="32" y2="42" stroke="#0a1f1c" stroke-width="1.5"/>
+        </g>
+
+        <!-- TREES -->
+        <g transform="translate(80, 360)">
+          <rect x="-2" y="20" width="4" height="14" fill="#0e5a3d"/>
+          <circle cx="0" cy="14" r="14" fill="#1a8a5e"/>
+          <circle cx="-7" cy="20" r="10" fill="#2cc985"/>
+          <circle cx="7" cy="20" r="10" fill="#1a8a5e"/>
+        </g>
+        <g transform="translate(440, 370)">
+          <rect x="-2" y="14" width="3" height="10" fill="#0e5a3d"/>
+          <circle cx="0" cy="10" r="10" fill="#1a8a5e"/>
+          <circle cx="-5" cy="14" r="7" fill="#2cc985"/>
+        </g>
+
+        <!-- EV CAR (small accent) -->
+        <g transform="translate(245, 405)">
+          <rect x="0" y="0" width="40" height="14" rx="3" fill="#1e6fb8" stroke="#0a1f1c" stroke-width="1"/>
+          <path d="M 5 0 Q 8 -7, 18 -7 L 28 -7 Q 35 -7, 36 0" fill="#4a9fdc" stroke="#0a1f1c" stroke-width="1"/>
+          <circle cx="9" cy="14" r="3" fill="#0a1f1c"/>
+          <circle cx="31" cy="14" r="3" fill="#0a1f1c"/>
+          <!-- Charge indicator -->
+          <circle cx="20" cy="3" r="1.5" fill="#2cc985"/>
+        </g>
+
+        <!-- ENERGY FLOW PARTICLES -->
+        <g class="energy-flow" opacity="0.7">
+          <circle cx="370" cy="140" r="2" fill="#f4c430">
+            <animate attributeName="cx" values="370;320;280" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="140;240;320" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.4;0" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="370" cy="140" r="2" fill="#f4c430">
+            <animate attributeName="cx" values="370;420;385" dur="3s" begin="1s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="140;240;340" dur="3s" begin="1s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.4;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="180" cy="240" r="2" fill="#2cc985">
+            <animate attributeName="cy" values="240;300;380" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.4;0" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+      </svg>
+
+      <!-- Stat badges floating around -->
+      <div class="hero-badge b1">
+        <div class="badge-num">10</div>
+        <div class="badge-label">Cities</div>
+      </div>
+      <div class="hero-badge b2">
+        <div class="badge-num">3</div>
+        <div class="badge-label">Months</div>
+      </div>
+      <div class="hero-badge b3">
+        <div class="badge-num">₹100<span style="font-size:0.6em;">Cr</span></div>
+        <div class="badge-label">Pipeline</div>
+      </div>
+      <div class="hero-badge b4">
+        <div class="badge-num">50K<span style="color:var(--green-bright);">+</span></div>
+        <div class="badge-label">Visitors</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Tier 2/3 Cities</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50K<span class="plus">+</span></div>
+      <div class="stat-label">Expected Visitors</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">03</div>
+      <div class="stat-label">Months · 1 Closing Summit</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">20</div>
+      <div class="stat-label">Sponsor Slots Only</div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== ROUTE / CITIES ========== -->
+<section id="cities" class="route-section">
+  <div class="section-head">
+    <div class="section-eyebrow">The Route · 2026</div>
+    <h2 class="section-title">From Sirsa to Chandigarh — <em class="green">a 1,200 km journey</em> through India's most underserved clean-energy market.</h2>
+    <p class="section-sub">Each city stop is a 3-day ground activation: branded stalls, live demos, government enrolment desks, institutional B2B meets, and Haryanvi-language outreach. The journey ends with a flagship summit in Chandigarh.</p>
+  </div>
+
+  <!-- ROUTE MAP SVG -->
+  <div class="route-map">
+    <svg class="route-svg" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="route-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a8a5e" stop-opacity="0.3"/>
+          <stop offset="50%" stop-color="#0fa3a3" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#1e6fb8" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+      <!-- Dotted background grid -->
+      <g opacity="0.15">
+        <line x1="0" y1="100" x2="1200" y2="100" stroke="#0a1f1c" stroke-dasharray="2 8"/>
+        <line x1="0" y1="200" x2="1200" y2="200" stroke="#0a1f1c" stroke-dasharray="2 8"/>
+        <line x1="0" y1="300" x2="1200" y2="300" stroke="#0a1f1c" stroke-dasharray="2 8"/>
+      </g>
+
+      <!-- The journey path -->
+      <path d="M 60 250 Q 200 150, 280 220 T 460 180 T 640 240 T 820 160 T 1000 200 L 1140 100"
+            fill="none" stroke="url(#route-grad)" stroke-width="3"
+            stroke-dasharray="6 4" stroke-linecap="round"/>
+
+      <!-- City dots and labels -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#0a1f1c" font-weight="500">
+        <!-- 01 Sirsa -->
+        <circle cx="60" cy="250" r="6" fill="#1a8a5e"/>
+        <circle cx="60" cy="250" r="14" fill="none" stroke="#1a8a5e" stroke-width="1" opacity="0.4"/>
+        <text x="60" y="285" text-anchor="middle" letter-spacing="1">01 · SIRSA</text>
+
+        <!-- 02 Fatehabad -->
+        <circle cx="180" cy="180" r="5" fill="#1a8a5e"/>
+        <text x="180" y="160" text-anchor="middle" letter-spacing="1">02 · FATEHABAD</text>
+
+        <!-- 03 Hisar -->
+        <circle cx="280" cy="220" r="6" fill="#1a8a5e"/>
+        <circle cx="280" cy="220" r="14" fill="none" stroke="#1a8a5e" stroke-width="1" opacity="0.4"/>
+        <text x="280" y="255" text-anchor="middle" letter-spacing="1">03 · HISAR</text>
+
+        <!-- 04 Bhiwani -->
+        <circle cx="380" cy="200" r="5" fill="#0fa3a3"/>
+        <text x="380" y="180" text-anchor="middle" letter-spacing="1">04 · BHIWANI</text>
+
+        <!-- 05 Charkhi Dadri -->
+        <circle cx="460" cy="180" r="5" fill="#0fa3a3"/>
+        <text x="460" y="160" text-anchor="middle" letter-spacing="1">05 · DADRI</text>
+
+        <!-- 06 Jind -->
+        <circle cx="560" cy="220" r="5" fill="#0fa3a3"/>
+        <text x="560" y="245" text-anchor="middle" letter-spacing="1">06 · JIND</text>
+
+        <!-- 07 Kaithal -->
+        <circle cx="640" cy="240" r="5" fill="#0fa3a3"/>
+        <text x="640" y="265" text-anchor="middle" letter-spacing="1">07 · KAITHAL</text>
+
+        <!-- 08 Karnal -->
+        <circle cx="740" cy="190" r="5" fill="#1e6fb8"/>
+        <text x="740" y="170" text-anchor="middle" letter-spacing="1">08 · KARNAL</text>
+
+        <!-- 09 Panipat -->
+        <circle cx="820" cy="160" r="5" fill="#1e6fb8"/>
+        <text x="820" y="140" text-anchor="middle" letter-spacing="1">09 · PANIPAT</text>
+
+        <!-- 10 Ambala -->
+        <circle cx="1000" cy="200" r="5" fill="#1e6fb8"/>
+        <text x="1000" y="225" text-anchor="middle" letter-spacing="1">10 · AMBALA</text>
+
+        <!-- FINALE Chandigarh -->
+        <circle cx="1140" cy="100" r="10" fill="#2cc985" stroke="#0a1f1c" stroke-width="2"/>
+        <circle cx="1140" cy="100" r="20" fill="none" stroke="#2cc985" stroke-width="1" opacity="0.5"/>
+        <text x="1140" y="65" text-anchor="middle" letter-spacing="1.5" font-weight="700" font-size="11">★ CHANDIGARH</text>
+        <text x="1140" y="80" text-anchor="middle" letter-spacing="1.5" font-size="9" opacity="0.6">CLOSING SUMMIT</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- CITY LIST -->
+  <div class="city-list">
+    <div class="city">
+      <div class="city-num">01</div>
+      <div class="city-name">Sirsa</div>
+      <div class="city-detail">Cotton Belt · Mar 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">02</div>
+      <div class="city-name">Fatehabad</div>
+      <div class="city-detail">Rural Heartland · Mar 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">03</div>
+      <div class="city-name">Hisar</div>
+      <div class="city-detail">Agri & Industrial · Mar 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">04</div>
+      <div class="city-name">Bhiwani</div>
+      <div class="city-detail">Education Hub · Apr 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">05</div>
+      <div class="city-name">Dadri</div>
+      <div class="city-detail">Emerging Town · Apr 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">06</div>
+      <div class="city-name">Jind</div>
+      <div class="city-detail">Central Haryana · Apr 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">07</div>
+      <div class="city-name">Kaithal</div>
+      <div class="city-detail">Rice-Wheat Belt · Apr 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">08</div>
+      <div class="city-name">Karnal</div>
+      <div class="city-detail">Smart City · May 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">09</div>
+      <div class="city-name">Panipat</div>
+      <div class="city-detail">Industrial Cluster · May 2026</div>
+    </div>
+    <div class="city">
+      <div class="city-num">10</div>
+      <div class="city-name">Ambala</div>
+      <div class="city-detail">Border Gateway · May 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GOVERNMENT SCHEMES ========== -->
+<section id="schemes" class="schemes-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Government Schemes · Live Subsidies</div>
+    <h2 class="section-title">Real money saved. <em class="green">Real schemes</em> we'll help visitors enrol in.</h2>
+    <p class="section-sub">HGER isn't just a brand event — we'll set up live government enrolment desks at every stop, helping visitors apply for subsidies on the spot. Your sponsor stall sits next to the people who'll actually buy.</p>
+  </div>
+
+  <div class="schemes-grid">
+
+    <!-- Scheme 1: PM Surya Ghar -->
+    <div class="scheme-card">
+      <div class="scheme-flag">Central · Active</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11"/>
+          <rect x="9" y="13" width="6" height="8" fill="currentColor" opacity="0.15"/>
+          <circle cx="18" cy="6" r="2.5" fill="currentColor" opacity="0.4"/>
+        </svg>
+      </div>
+      <h3>PM Surya Ghar Muft Bijli Yojana</h3>
+      <p class="scheme-tagline">Free electricity up to 300 units/month for 1 crore households across India.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">Subsidy</span>
+          <span class="stat-value">Up to ₹78,000</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Monthly savings</span>
+          <span class="stat-value">₹1,800–4,500</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">Homes, RWAs, schools</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:78%; background:var(--green);"></div>
+        <span class="bar-text">Saves ~78% on annual electricity bill</span>
+      </div>
+    </div>
+
+    <!-- Scheme 2: PM-KUSUM -->
+    <div class="scheme-card featured">
+      <div class="scheme-flag highlight">Most Subsidised</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2v4M5 5l3 3M2 12h4M5 19l3-3M19 5l-3 3M22 12h-4M19 19l-3-3"/>
+          <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.2"/>
+          <path d="M9 22h6M12 18v4"/>
+        </svg>
+      </div>
+      <h3>PM-KUSUM (Kisan Urja Suraksha)</h3>
+      <p class="scheme-tagline">Solar agricultural pumps and grid-connected solar plants for farmers — central + state subsidy stacked.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">Subsidy</span>
+          <span class="stat-value">Up to 90%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Farmer pays</span>
+          <span class="stat-value">As low as 10%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">Farmers, FPOs, agri-pumps</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:90%; background:var(--green-bright);"></div>
+        <span class="bar-text">90% government-funded for eligible farmers</span>
+      </div>
+    </div>
+
+    <!-- Scheme 3: Haryana State Solar Policy -->
+    <div class="scheme-card">
+      <div class="scheme-flag state">State · Haryana</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="6" width="18" height="13" rx="2"/>
+          <path d="M3 10h18M7 14h2M11 14h6"/>
+          <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3>Haryana Solar Policy 2024</h3>
+      <p class="scheme-tagline">Additional state subsidy for rooftop solar, net metering benefits, and time-bound DISCOM approvals.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">State top-up</span>
+          <span class="stat-value">Extra ₹20,000+</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Net metering</span>
+          <span class="stat-value">Sell extra back to grid</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">All Haryana residents</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:65%; background:var(--blue);"></div>
+        <span class="bar-text">Payback period reduced to 4–5 years</span>
+      </div>
+    </div>
+
+    <!-- Scheme 4: FAME-II / EV Push -->
+    <div class="scheme-card">
+      <div class="scheme-flag">EV · Mobility</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 16V8a2 2 0 012-2h14a2 2 0 012 2v8M3 16h18M5 16v2a1 1 0 001 1h2a1 1 0 001-1v-2M15 16v2a1 1 0 001 1h2a1 1 0 001-1v-2"/>
+          <path d="M7 10l2 2-2 2M11 14h6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>FAME-II + Haryana EV Policy</h3>
+      <p class="scheme-tagline">Subsidies on electric two-wheelers, three-wheelers, and buses + waiver on registration fees and road tax.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">EV 2-wheeler</span>
+          <span class="stat-value">₹15,000+ off</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Road tax</span>
+          <span class="stat-value">100% waiver</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">Fleet, individual, commercial</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:70%; background:var(--teal);"></div>
+        <span class="bar-text">Up to 70% cheaper running cost vs petrol</span>
+      </div>
+    </div>
+
+    <!-- Scheme 5: National Green Hydrogen Mission -->
+    <div class="scheme-card">
+      <div class="scheme-flag">Industrial · 2030</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L4 12c0 5 3.5 9 8 9s8-4 8-9L12 2z" fill="currentColor" opacity="0.15"/>
+          <path d="M12 2L4 12c0 5 3.5 9 8 9s8-4 8-9L12 2z"/>
+          <text x="12" y="16" text-anchor="middle" font-size="6" font-weight="700" fill="currentColor">H₂</text>
+        </svg>
+      </div>
+      <h3>National Green Hydrogen Mission</h3>
+      <p class="scheme-tagline">₹19,744 crore outlay for green hydrogen production, electrolyzers, and pilot industrial projects.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">Outlay</span>
+          <span class="stat-value">₹19,744 Cr</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Target</span>
+          <span class="stat-value">5 MMT by 2030</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">SMEs, refineries, fertilizer cos</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:85%; background:var(--green-deep);"></div>
+        <span class="bar-text">Future of industrial decarbonisation</span>
+      </div>
+    </div>
+
+    <!-- Scheme 6: HAREDA SHAKTI -->
+    <div class="scheme-card">
+      <div class="scheme-flag state">HAREDA · State Nodal</div>
+      <div class="scheme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="currentColor" opacity="0.15"/>
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+      </div>
+      <h3>HAREDA Outreach Programs</h3>
+      <p class="scheme-tagline">Haryana Renewable Energy Development Agency runs awareness drives, vendor empanelment, and direct citizen support.</p>
+      <div class="scheme-stat">
+        <div class="stat-row">
+          <span class="stat-label">Approved vendors</span>
+          <span class="stat-value">300+ in Haryana</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Subsidy disbursal</span>
+          <span class="stat-value">Direct to bank account</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Best for</span>
+          <span class="stat-value">All Haryana citizens</span>
+        </div>
+      </div>
+      <div class="scheme-bar">
+        <div class="bar-fill" style="width:60%; background:var(--blue-deep);"></div>
+        <span class="bar-text">Live enrolment desks at every HGER city stop</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Savings calculator strip -->
+  <div class="savings-strip">
+    <div class="strip-content">
+      <div class="strip-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>
+        </svg>
+      </div>
+      <div class="strip-text">
+        <div class="strip-eyebrow">Average Haryana Household</div>
+        <div class="strip-headline">
+          <span class="strip-num">₹52,000</span> saved per year
+        </div>
+        <div class="strip-sub">After installing 3kW rooftop solar with PM Surya Ghar subsidy + Haryana state top-up. Investment recovered in ~4 years.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /SCHEMES -->
+
+<!-- ========== EXCLUSIVITY ========== -->
+<section id="exclusive" class="exclusive">
+  <div class="exclusive-grid">
+    <div>
+      <div class="section-eyebrow">Strict Limit · No Exceptions</div>
+      <h2>Only <span class="num">20</span> companies will share this stage.</h2>
+      <p>HGER is not a crowded expo with hundreds of competing booths. We intentionally cap participation at <strong style="color:var(--green-bright)">twenty companies</strong> across all 10 cities — to guarantee every sponsor real visibility, real leads, and real ROI in front of every visitor that walks in.</p>
+      <p style="margin-bottom:0">Once the 20 slots are filled, applications close. Period.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:32px;background:var(--green-bright);color:var(--ink);">
+        Claim a Slot
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="slots-card">
+      <div class="slots-header">
+        <span class="label">Sponsor Slots · Live</span>
+        <span class="count">14 of 20 open</span>
+      </div>
+      <div class="slots-grid">
+        <div class="slot taken">01</div>
+        <div class="slot taken">02</div>
+        <div class="slot taken">03</div>
+        <div class="slot taken">04</div>
+        <div class="slot taken">05</div>
+        <div class="slot taken">06</div>
+        <div class="slot open">07</div>
+        <div class="slot open">08</div>
+        <div class="slot open">09</div>
+        <div class="slot open">10</div>
+        <div class="slot open">11</div>
+        <div class="slot open">12</div>
+        <div class="slot open">13</div>
+        <div class="slot open">14</div>
+        <div class="slot open">15</div>
+        <div class="slot open">16</div>
+        <div class="slot open">17</div>
+        <div class="slot open">18</div>
+        <div class="slot open">19</div>
+        <div class="slot open">20</div>
+      </div>
+      <div class="slot-legend">
+        <span><span class="legend-dot taken"></span>In conversation</span>
+        <span><span class="legend-dot open"></span>Open</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIERS / SPONSORSHIP ========== -->
+<section id="sponsors" class="tiers-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Sponsorship Tiers</div>
+    <h2 class="section-title">Three tiers. <em class="green">Twenty seats.</em> One unforgettable journey.</h2>
+    <p class="section-sub">Every tier is built around one promise — your brand, in front of the right buyer, in every city we visit.</p>
+  </div>
+
+  <div class="tiers-grid">
+    <div class="tier">
+      <div class="tier-meta">Tier III · Associate</div>
+      <h3 class="tier-name">Hamsafar</h3>
+      <div class="tier-slots">12 slots — co-traveller status</div>
+      <ul>
+        <li>Branded stall in all 10 cities</li>
+        <li>Logo on collateral & banners</li>
+        <li>Lead capture at every stop</li>
+        <li>Closing summit invitation</li>
+        <li>Institutional buyer introductions</li>
+      </ul>
+      <a href="#contact" class="tier-cta">Enquire →</a>
+    </div>
+
+    <div class="tier featured">
+      <div class="tier-tag">Most Popular</div>
+      <div class="tier-meta">Tier II · Co-Title</div>
+      <h3 class="tier-name">Saarthi</h3>
+      <div class="tier-slots">7 slots — strategic partner</div>
+      <ul>
+        <li>Premium stall + product showcase zone</li>
+        <li>Stage time at every city event</li>
+        <li>Co-branded press releases</li>
+        <li>Dedicated PR + media coverage</li>
+        <li>Government MoU signing photo-ops</li>
+        <li>Closing summit awards stage</li>
+      </ul>
+      <a href="#contact" class="tier-cta">Reserve →</a>
+    </div>
+
+    <div class="tier">
+      <div class="tier-meta">Tier I · Title</div>
+      <h3 class="tier-name">Pradhaan</h3>
+      <div class="tier-slots">1 slot — title sponsor</div>
+      <ul>
+        <li>"Presented by" naming rights</li>
+        <li>HGER becomes "[Brand] HGER 2026"</li>
+        <li>Inaugural ribbon-cut at every city</li>
+        <li>Headline closing summit speaker</li>
+        <li>Year-long brand association</li>
+        <li>First right of refusal for HGER 2027</li>
+      </ul>
+      <a href="#contact" class="tier-cta">Apply →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AUDIENCE ========== -->
+<section id="audience">
+  <div class="section-head">
+    <div class="section-eyebrow">Who Walks In</div>
+    <h2 class="section-title">Institutional buyers <em class="blue">with budgets,</em> not browsers.</h2>
+    <p class="section-sub">We've designed HGER to attract decision-makers from four high-impact institutional segments — every one of them sitting on procurement budgets and ESG mandates this fiscal year.</p>
+  </div>
+
+  <div class="audience-grid">
+    <!-- 1. SCHOOLS -->
+    <div class="audience-card">
+      <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+      <h3>Schools & Colleges</h3>
+      <span class="pct">28% of footfall</span>
+      <p>1,200+ schools and 80+ colleges across Haryana looking for rooftop solar, energy education programs, and clean-tech partnerships under the PM Surya Ghar scheme.</p>
+    </div>
+
+    <!-- 2. HOSPITALS -->
+    <div class="audience-card">
+      <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="4" width="16" height="16" rx="2"/>
+        <path d="M12 8v8M8 12h8"/>
+      </svg>
+      <h3>Hospitals & Healthcare</h3>
+      <span class="pct">22% of footfall</span>
+      <p>Government hospitals, private clinics, and PHCs seeking 24×7 solar backup, oxygen plant power, and reliable clean-energy systems for critical care infrastructure.</p>
+    </div>
+
+    <!-- 3. GOVERNMENT BODIES & PANCHAYATS -->
+    <div class="audience-card">
+      <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/>
+      </svg>
+      <h3>Govt. Bodies & Panchayats</h3>
+      <span class="pct">26% of footfall</span>
+      <p>Block offices, municipal bodies, and 6,000+ Gram Panchayats with mandated procurement for solar streetlights, EV fleets, water pumps, and public-building retrofits.</p>
+    </div>
+
+    <!-- 4. HOTELS & COMMERCIAL -->
+    <div class="audience-card">
+      <svg class="audience-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 21V8l9-5 9 5v13M3 21h18"/>
+        <rect x="7" y="11" width="3" height="3"/>
+        <rect x="14" y="11" width="3" height="3"/>
+        <rect x="7" y="16" width="3" height="3"/>
+        <rect x="14" y="16" width="3" height="3"/>
+      </svg>
+      <h3>Hotels & Commercial</h3>
+      <span class="pct">24% of footfall</span>
+      <p>Hotels, resorts, malls, and large commercial buildings under ESG compliance pressure — high-ticket buyers for solar, energy storage, EV charging, and efficiency retrofits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section id="contact" class="final-cta">
+  <div class="final-cta-inner">
+    <h2>The future is <em>cleaner.</em><br/>And it begins in Haryana.</h2>
+    <p>HGER 2026 begins this March. With only 20 sponsor slots and a 3-month window, the conversation starts now.</p>
+    <a href="mailto:partnerships@hger.in" class="btn-primary">
+      Apply for Sponsorship
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+    </a>
+    <p style="margin-top:32px;font-size:14px;color:rgba(251,253,252,0.55);" class="mono">
+      partnerships@hger.in &nbsp;·&nbsp; +91 XXX XXX XXXX
+    </p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span style="color:var(--paper);">HGER<sup style="font-size:10px;color:var(--green-bright);margin-left:4px;">2026</sup></span>
+      </div>
+      <p>Haryana Green Energy Roadshow — a 10-city, 3-month journey to bring renewable energy solutions across solar, wind, EV, biofuels, and clean-tech to institutions and businesses across Haryana. In partnership with the Government of Haryana.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Tour</h4>
+      <a href="#cities">Route & Cities</a>
+      <a href="#schemes">Govt. Schemes</a>
+      <a href="#audience">Audience</a>
+      <a href="#sponsors">Sponsorship</a>
+      <a href="#exclusive">20 Slots</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About HGER</a>
+      <a href="#">Press</a>
+      <a href="#">Careers</a>
+      <a href="#">HGER 2027</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="#">partnerships@hger.in</a>
+      <a href="#">media@hger.in</a>
+      <a href="#">Chandigarh, India</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© HGER 2026 · ALL RIGHTS RESERVED</span>
+    <span>EDITION I · MARCH–MAY 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
