@@ -39,7 +39,7 @@ export default function BentoGrid({ activeIndex, words }: BentoGridProps) {
           <p className="text-[11px] text-[#0e5a3d] uppercase tracking-wide leading-relaxed max-w-[95%] font-bold mb-6">
             Join the movement towards a zero-carbon Haryana. Secure your spot today.
           </p>
-          <button className="bg-gradient-to-r from-[#69C242] to-[#50AC26] text-white text-[11px] font-bold px-6 py-4 rounded-xl w-full sm:w-fit hover:from-[#50AC26] hover:to-[#3e9317] transition-all shadow-[0_10px_20px_rgba(105,194,66,0.25)] hover:shadow-[0_12px_25px_rgba(105,194,66,0.35)] uppercase tracking-widest active:scale-[0.98]">
+          <button className="bg-[#1b8a5e] text-white text-[11px] font-bold px-6 py-4 rounded-xl w-full sm:w-fit hover:bg-[#0e5a3d] transition-all shadow-[0_10px_20px_rgba(27,138,94,0.15)] uppercase tracking-widest active:scale-[0.98]">
             JOIN THE ROADSHOW →
           </button>
         </div>

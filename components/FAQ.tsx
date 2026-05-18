@@ -48,7 +48,7 @@ export default function FAQ() {
             <p className="text-sm sm:text-base text-[#2d4a45]/70 mb-4 font-bold tracking-wide uppercase font-sans">
               Have any question in your mind?
             </p>
-            <button className="bg-gradient-to-r from-[#69C242] to-[#50AC26] hover:from-[#50AC26] hover:to-[#3e9317] text-white text-xs font-bold px-8 py-4 rounded-2xl tracking-widest uppercase transition-all shadow-[0_6px_20px_rgba(105,194,66,0.25)] hover:shadow-[0_8px_25px_rgba(105,194,66,0.35)] active:scale-[0.98]">
+            <button className="bg-[#1b8a5e] hover:bg-[#0e5a3d] text-white text-xs font-bold px-8 py-4 rounded-2xl tracking-widest uppercase transition-all shadow-[0_6px_20px_rgba(27,138,94,0.15)] active:scale-[0.98]">
               Ask HGER Team
             </button>
           </div>

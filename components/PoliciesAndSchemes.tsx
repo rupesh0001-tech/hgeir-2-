@@ -77,7 +77,7 @@ export default function PoliciesAndSchemes() {
             <p className="text-[#2d4a45]/70 text-base md:text-xl leading-relaxed mb-10 md:mb-12 text-balance">
               We bring official enrolment desks for every major central and state scheme directly to the roadshow floor — helping visitors move from awareness to enrolment in minutes.
             </p>
-            <button className="bg-gradient-to-r from-[#69C242] to-[#50AC26] hover:from-[#50AC26] hover:to-[#3e9317] text-white text-[10px] font-bold px-8 md:px-10 py-4 rounded-xl tracking-widest uppercase flex items-center self-start shadow-xl transition-all group">
+            <button className="bg-[#1b8a5e] hover:bg-[#0e5a3d] text-white text-[10px] font-bold px-8 md:px-10 py-4 rounded-xl tracking-widest uppercase flex items-center self-start shadow-xl transition-all group active:scale-[0.98]">
               Live Enrolment Desks <span className="ml-3 transform group-hover:translate-x-1 transition-transform">→</span>
             </button>
           </motion.div>

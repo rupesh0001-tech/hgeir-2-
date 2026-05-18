@@ -29,7 +29,7 @@ export default function FinalCTA() {
           </div>
         </div>
         
-        <button className="bg-[#1a8a5e] text-white px-10 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-[11px] md:text-sm tracking-widest uppercase hover:bg-[#0a1f1c] transition-all shadow-lg w-full sm:w-auto">
+        <button className="bg-[#1b8a5e] text-white px-10 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-[11px] md:text-sm tracking-widest uppercase hover:bg-[#0e5a3d] transition-all shadow-[0_10px_25px_rgba(27,138,94,0.15)] w-full sm:w-auto active:scale-[0.98]">
           ENQUIRE FOR PARTNERSHIP
         </button>
       </div>
