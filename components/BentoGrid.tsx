@@ -1,7 +1,19 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export default function BentoGrid() {
+interface BentoGridProps {
+  activeIndex: number;
+  words: string[];
+}
+
+export default function BentoGrid({ activeIndex, words }: BentoGridProps) {
+  const images = [
+    "/wind_turbines.png",
+    "/solar_panel.png"
+  ];
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:min-h-[280px] xl:min-h-[320px] max-w-[1400px] mx-auto w-full px-4 md:px-0">
       {/* Card 1: Green Energy Initiative */}
@@ -49,12 +61,32 @@ export default function BentoGrid() {
         </div>
       </div>
  
-      {/* Card 3: Image */}
+      {/* Card 3: Dynamic Image Card with 2 images */}
       <div className="bg-gray-200 rounded-3xl lg:col-span-4 relative overflow-hidden min-h-[250px] lg:h-full group shadow-sm">
-        <Image src="/wind_turbines.png" alt="Wind Turbines" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-[#0a1f1c]/10"></div>
-        <div className="absolute bottom-5 right-5">
-          <button className="bg-[#fbfdfc] hover:bg-[#f0f7f4] text-[#0a1f1c] text-[9px] font-bold px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors shadow-lg">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image 
+              src={images[activeIndex]} 
+              alt={words[activeIndex] || "Green Energy"} 
+              fill 
+              className="object-cover transition-transform duration-[6000ms] ease-out group-hover:scale-105" 
+            />
+          </motion.div>
+        </AnimatePresence>
+        
+        {/* Soft Vignette Overlay */}
+        <div className="absolute inset-0 bg-[#0a1f1c]/10 z-10 pointer-events-none"></div>
+        
+        {/* Floating Play Button - ABOUT US */}
+        <div className="absolute bottom-5 right-5 z-20">
+          <button className="bg-[#fbfdfc] hover:bg-[#f0f7f4] text-[#0a1f1c] text-[9px] font-bold px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors shadow-lg cursor-pointer">
             <span className="text-[6px]">▶</span> <span>ABOUT US</span>
           </button>
         </div>

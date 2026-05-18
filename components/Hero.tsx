@@ -1,26 +1,14 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Hero() {
-  const words = [
-    "GREENER HARYANA",
-    "CLEANER STREETS",
-    "SMARTER CITIES",
-    "HEALTHIER COMMUNITIES",
-  ];
+interface HeroProps {
+  index: number;
+  words: string[];
+}
 
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2800); // Transitions every 2.8 seconds
-    return () => clearInterval(interval);
-  }, []);
-
+export default function Hero({ index, words }: HeroProps) {
   const currentWord = words[index];
-  // Smart check to prevent "SUSTAINABLE FUTURE FUTURE" redundancy
   const showTrailingFuture = !currentWord.endsWith("FUTURE");
 
   return (
@@ -74,7 +62,7 @@ export default function Hero() {
         </div>
       </h1>
       
-      <div className="max-w-4xl mx-auto mt-6 md:mt-12">
+      <div className="max-w-4xl mx-auto mt-6 md:mt-10">
         <p className="text-[#2d4a45] text-[10px] sm:text-sm md:text-base font-medium uppercase tracking-wide leading-relaxed">
           Together, we can make the world a better place by creating <br className="hidden md:block" />
           a strong and sustainable energy infrastructure for all.
