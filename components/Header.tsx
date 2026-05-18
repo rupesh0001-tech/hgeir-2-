@@ -50,16 +50,12 @@ export default function Header() {
         {/* Inner container to keep elements aligned to standard page width */}
         <div className="flex items-center justify-between w-full max-w-6xl mx-auto">
           {/* New HGER Logo */}
-          <Link href="/" className="flex items-center space-x-3 shrink-0 group">
+          <Link href="/" className="flex items-center shrink-0 group">
             <img 
               src="/logo-h.jpeg" 
               alt="HGER Logo" 
               className="h-9 w-auto rounded-lg object-contain shadow-sm group-hover:scale-102 transition-transform duration-300"
             />
-            <span className="font-fraunces font-black text-base sm:text-lg text-[#0c2415] tracking-wide uppercase whitespace-nowrap">
-              HGER
-              <sup className="text-[9px] text-[#1a8a5e] ml-0.5 font-bold font-mono">2026</sup>
-            </span>
           </Link>
 
           {/* Desktop Nav - 7 original links */}
