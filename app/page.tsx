@@ -32,7 +32,7 @@ export default function Home() {
       <Hero index={index} words={words} />
       <BentoGrid activeIndex={index} words={words} />
       <RoadshowTrail />
-      <PoliciesAndSchemes />
+      {/* <PoliciesAndSchemes /> */}
       <TargetAudience />
       <Exclusivity />
       <SummitAndAwards />

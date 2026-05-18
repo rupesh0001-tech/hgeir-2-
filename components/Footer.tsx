@@ -11,12 +11,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-20">
           {/* Branding Column */}
           <div className="lg:col-span-4">
-            <div className="flex items-center space-x-2.5 mb-6">
-              <div className="w-6 h-6 bg-[#1a8a5e] rounded-tl-full rounded-br-full rounded-tr-sm rounded-bl-sm flex items-center justify-center text-white">
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M17 8C8 10 7 19 7 19S16 18 18 9C19 4 17 3 17 3S16 4 17 8M12 14C11.5 13.5 11 13 10.5 12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/logo-h.jpeg" 
+                alt="HGER Logo" 
+                className="h-9 w-auto rounded-lg object-contain"
+              />
               <span className="font-bold tracking-[0.2em] text-base uppercase">HGER<sup className="text-[9px] text-[#1a8a5e] ml-0.5">2026</sup></span>
             </div>
             <p className="text-white/30 text-xs max-w-sm leading-relaxed mb-8">
